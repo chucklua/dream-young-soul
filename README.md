@@ -34,6 +34,7 @@
 - 树形插件：ztree
 - 弹窗组件：layer
 - 日期组件：laydate
+- 下拉选择组件：select2
 - 表单校验：validator
 - 后端校验：fluent-validator
 - 接口管理：swagger-ui
