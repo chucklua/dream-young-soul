@@ -59,7 +59,7 @@ public class SysMacroServiceImpl implements SysMacroService {
 
 	@Override
 	public R updateMacro(SysMacroEntity macro) {
-		int count = sysMacroManager.updateMacro(validateMacro(macro));
+		int count = sysMacroManager.updateMacro(macro);
 		return CommonUtils.msg(count);
 	}
 

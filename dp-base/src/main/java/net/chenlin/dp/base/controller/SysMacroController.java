@@ -78,7 +78,35 @@ public class SysMacroController extends AbstractController {
 	public R update(@RequestBody SysMacroEntity macro) {
 		return sysMacroService.updateMacro(macro);
 	}
-	
+
+	/**
+	 * 显示字典
+	 * @param id
+	 * @return
+	 */
+	@SysLog("显示字典")
+	@RequestMapping("/enable")
+	public R updateStateShow(@RequestBody Long id) {
+		SysMacroEntity macro = new SysMacroEntity();
+		macro.setMacroId(id);
+		macro.setStatus(1);
+		return sysMacroService.updateMacro(macro);
+	}
+
+	/**
+	 * 隐藏字典
+	 * @param id
+	 * @return
+	 */
+	@SysLog("隐藏字典")
+	@RequestMapping("/disable")
+	public R updateStateHide(@RequestBody Long id) {
+		SysMacroEntity macro = new SysMacroEntity();
+		macro.setMacroId(id);
+		macro.setStatus(0);
+		return sysMacroService.updateMacro(macro);
+	}
+
 	/**
 	 * 删除字典
 	 * @param id

@@ -182,3 +182,45 @@ $.ConfirmAjax = function(options) {
 		}, 500);
 	});
 }
+
+$.AjaxForm = function(opt) {
+    var defaults = {
+        url : "",
+        param : {},
+        type : "post",
+        dataType : "json",
+        contentType : "application/json",
+        success : null,
+        close : true
+    };
+    var options = $.extend(defaults, opt);
+    dialogLoading(true);
+    window.setTimeout(function() {
+        var postdata = options.param;
+        $.ajax({
+            url : options.url,
+            data : JSON.stringify(postdata),
+            type : options.type,
+            dataType : options.dataType,
+            contentType : options.contentType,
+            success : function(data) {
+                if (data.code == '500') {
+                    dialogAlert(data.msg, 'error');
+                } else if (data.code == '0') {
+                    dialogMsg(data.msg, 'success');
+                    options.success(data);
+                }
+            },
+            error : function(XMLHttpRequest, textStatus, errorThrown) {
+                dialogLoading(false);
+                dialogMsg(errorThrown, 'error');
+            },
+            beforeSend : function() {
+                dialogLoading(true);
+            },
+            complete : function() {
+                dialogLoading(false);
+            }
+        });
+    }, 500);
+}

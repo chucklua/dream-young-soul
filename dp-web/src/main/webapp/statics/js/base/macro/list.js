@@ -47,16 +47,34 @@ function getGrid() {
                 field: 'status',
                 width: '60px',
                 formatter: function (value, row, index) {
-                    if (row.status === 0) {
-                        return '<i class="fa fa-toggle-off"></i>';
-                    }
-                    if (row.status === 1) {
-                        return '<i class="fa fa-toggle-on"></i>';
+                    if(value === 0){
+                        return '<input type="checkbox" class="js-switch" data-id="'+row.macroId+'">';
+                    }else if(value === 1){
+                        return '<input type="checkbox" class="js-switch" data-id="'+row.macroId+'" checked>';
                     }
                 }
             },
             {title: '备注', field: 'remark'}
-        ]
+        ],
+        onPostBody: function() {
+            switchUtils.init({
+                selector: '.js-switch',
+                single: false,
+                change: function(switchContainer) {
+                    var url = '../../sys/macro/disable?_' + $.now();
+                    if (switchUtils.checked(switchContainer)) {
+                        url = '../../sys/macro/enable?_' + $.now();
+                    }
+                    $.AjaxForm({
+                        url: url,
+                        param: switchUtils.data(switchContainer, "id"),
+                        success: function(data) {
+                            vm.load();
+                        }
+                    });
+                }
+            });
+        }
     });
 }
 

@@ -44,16 +44,37 @@ function getGrid() {
 			title : "状态",
 			width : "60px",
 			formatter : function(value , row, index) {
-				if(value=='0'){
-	        		return '<span class="label label-danger">禁用</span>';
-	        	}else if(value=='1'){
-	        		return '<span class="label label-success">正常</span>';
+				if(value === 0){
+	        		return '<input type="checkbox" class="js-switch" data-id="'+row.userId+'">';
+	        	}else if(value === 1){
+                    return '<input type="checkbox" class="js-switch" data-id="'+row.userId+'" checked>';
 	        	}
 		   }
 		}, {
 			field : "gmtCreate",
 			title : "创建时间"
-		}]
+		}],
+		onPostBody: function() {
+            switchUtils.init({
+                selector: '.js-switch',
+                single: false,
+                change: function(switchContainer) {
+					var ids = [switchUtils.data(switchContainer, "id")];
+					var url = '../../sys/user/disable?_' + $.now();
+					if (switchUtils.checked(switchContainer)) {
+						url = '../../sys/user/enable?_' + $.now();
+					}
+                    $.AjaxForm({
+                        url: url,
+                        param: ids,
+                        success: function(data) {
+                            vm.load();
+                        }
+					});
+
+                }
+            });
+		}
 	})
 }
 

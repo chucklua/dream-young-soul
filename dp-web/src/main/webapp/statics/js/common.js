@@ -62,7 +62,7 @@ $.fn.bootstrapTableEx = function(opt){
         method: 'post',
         dataType: 'json',
         selectItemName: 'id',
-        clickToSelect: true,
+        clickToSelect: false,
         pagination: true,
         smartDisplay: false,
         pageSize: 10,
@@ -460,10 +460,6 @@ $.fn.selectBindEx = function(opt) {
         success: function(r) {
             selectControl = $select.select2(option);
             $.each(r, function(idx, item){
-                // if (option.selected === item[option.value]) {
-                //     selectControl.append("<option value='"+item[option.value]+"' selected>"+item[option.text]+"</option>");
-                // } else {
-                // }
                 selectControl.append("<option value='"+item[option.value]+"'>"+item[option.text]+"</option>");
             })
             $select.val(option.selected);
@@ -491,4 +487,108 @@ $.fn.selectInitEx = function(placeholder, search) {
         opt.minimumResultsForSearch = 'Infinity';
     }
     return $(this).select2(opt);
+}
+
+/**
+ * 富文本编辑器工具类
+ * @type {{init: editor.init}}
+ */
+editorUtils = {
+    init: function(opt) {
+        var defaults = {
+            element: '#editor',
+            change: function(){}
+        };
+        var option = $.extend({}, defaults, opt);
+        var editor = new window.wangEditor(option.element);
+        editor.customConfig.uploadImgServer = '/editor/upload';
+        editor.customConfig.onchange= function(html) {
+            option.change(html);
+        };
+        editor.customConfig.customAlert = function(info) {
+            dialogAlert(info, 'error');
+        };
+        editor.create();
+        return editor;
+    },
+    set: function($editor, content) {
+        $editor.txt.html(content);
+    },
+    get: function($editor) {
+        return $editor.txt.html();
+    },
+    text: function($editor) {
+        return $editor.txt.text();
+    },
+    append: function($editor, content) {
+        $editor.txt.append(content)
+    },
+    clear: function($editor) {
+        $editor.txt.clear()
+    },
+    hasContents: function ($editor) {
+        var content = this.get($editor);
+        return isNotNullOrEmpty(this.get($editor)) && "<p><br></p>" !== content;
+    }
+}
+
+/**
+ * switchery开关组件
+ * @type {{}}
+ * 选择器selector用于获取选择状态，开关instance用于设置状态，禁用，启用
+ */
+switchUtils = {
+    init: function(opt) {
+        var defaults = {
+            selector: '#editor',
+            size: 'small',
+            single: true,
+            change: function(){}
+        };
+        var option = $.extend({}, defaults, opt);
+        var switchContainer = [], switchResults = [];
+        if (option.single) {
+            switchContainer.push(document.querySelector(option.selector));
+        } else {
+            switchContainer = document.querySelectorAll(option.selector);
+        }
+        $.each(switchContainer, function(idx, item) {
+            var $switchery = new Switchery(item, option);
+            var $item = $(item);
+            var result = {selector: item, instance: $switchery};
+            $item.on('change', function(event) {
+                option.change(result);
+            });
+            switchResults.push(result);
+        });
+        if (option.single) {
+            return switchResults[0];
+        }
+        return switchResults;
+    },
+    set: function($switch, checked) {
+        $switch = $switch.instance;
+        if ((checked && !$switch.isChecked()) || (!checked && $switch.isChecked())) {
+            $switch.setPosition(true);
+            $switch.handleOnchange(true);
+        }
+    },
+    on: function($switch) {
+        this.set($switch, true);
+    },
+    off: function($switch) {
+        this.set($switch, false);
+    },
+    disable: function($switch) {
+        $switch.instance.disable();
+    },
+    enable: function($switch) {
+        $switch.instance.enable();
+    },
+    checked: function($switch) {
+        return $switch.selector.checked;
+    },
+    data: function($switch, key) {
+        return $($switch.selector).data(key);
+    }
 }
