@@ -30,7 +30,7 @@
 			},
 			error : function(XMLHttpRequest, textStatus, errorThrown) {
 				dialogLoading(false);
-				dialogMsg(errorThrown, 'error');
+				dialogMsg(textStatus, 'error');
 			},
 			beforeSend : function() {
 				dialogLoading(true);
@@ -73,7 +73,7 @@ $.RemoveForm = function(options) {
 				},
 				error : function(XMLHttpRequest, textStatus, errorThrown) {
 					dialogLoading(false);
-					dialogMsg(errorThrown, 'error');
+					dialogMsg(textStatus, 'error');
 				},
 				beforeSend : function() {
 					dialogLoading(true);
@@ -110,7 +110,7 @@ $.SetForm = function(options) {
 			}
 		},
 		error : function(XMLHttpRequest, textStatus, errorThrown) {
-			dialogMsg(errorThrown, 'error');
+			dialogMsg(textStatus, 'error');
 		},
 		beforeSend : function() {
 			dialogLoading(true);
@@ -170,7 +170,7 @@ $.ConfirmAjax = function(options) {
 				},
 				error : function(XMLHttpRequest, textStatus, errorThrown) {
 					dialogLoading(false);
-					dialogMsg(errorThrown, 'error');
+					dialogMsg(textStatus, 'error');
 				},
 				beforeSend : function() {
 					dialogLoading(true);
@@ -213,7 +213,7 @@ $.AjaxForm = function(opt) {
             },
             error : function(XMLHttpRequest, textStatus, errorThrown) {
                 dialogLoading(false);
-                dialogMsg(errorThrown, 'error');
+                dialogMsg(textStatus, 'error');
             },
             beforeSend : function() {
                 dialogLoading(true);
