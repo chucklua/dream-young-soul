@@ -1,5 +1,6 @@
 package net.chenlin.dp.shiro.service;
 
+import java.util.List;
 import java.util.Map;
 
 import net.chenlin.dp.common.entity.Page;
@@ -25,8 +26,8 @@ public interface SysRoleService {
 	R updateRole(SysRoleEntity role);
 	
 	R batchRemove(Long[] id);
-	
-	R listRole();
+
+	List<SysRoleEntity> listRole();
 	
 	R updateRoleAuthorization(SysRoleEntity role);
 	

@@ -70,8 +70,8 @@ var vm = new Vue({
 			dialogOpen({
 				title: '新增用户',
 				url: 'base/user/add.html?_' + $.now(),
-				width: '620px',
-				height: '480px',
+				width: '500px',
+				height: '400px',
 				scroll : true,
 				yes : function(iframeId) {
 					top.frames[iframeId].vm.acceptClick();
@@ -84,8 +84,8 @@ var vm = new Vue({
 				dialogOpen({
 					title: '编辑用户',
 					url: 'base/user/edit.html?_' + $.now(),
-					width: '620px',
-					height: '480px',
+					width: '500px',
+					height: '400px',
 					scroll : true,
 					success: function(iframeId){
 						top.frames[iframeId].vm.user.userId = ck[0].userId;
