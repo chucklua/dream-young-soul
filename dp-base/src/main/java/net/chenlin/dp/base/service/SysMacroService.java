@@ -26,5 +26,7 @@ public interface SysMacroService {
 	R updateMacro(SysMacroEntity macro);
 	
 	R batchRemove(Long[] id);
+
+	List<SysMacroEntity> listMacroValue(String type);
 	
 }

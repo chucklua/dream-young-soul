@@ -65,4 +65,9 @@ public class SysMacroManagerImpl implements SysMacroManager {
 		return false;
 	}
 
+	@Override
+	public List<SysMacroEntity> listMacroValue(String type) {
+		return sysMacroMapper.listMacroValue(type);
+	}
+
 }

@@ -97,6 +97,26 @@
 		WHERE
 			m.macro_id = #{macroId}
 	</select>
+
+	<select id="listMacroValue" resultType="SysMacroEntity">
+		SELECT
+			macro_id,
+			name,
+			value
+		FROM
+			sys_macro
+		WHERE
+			type_id = (
+				SELECT
+					macro_id
+				FROM
+					sys_macro
+				WHERE
+					value = #{value}
+			)
+		AND STATUS = 1
+		ORDER BY macro_id;
+</select>
 	
 	<update id="update">
 		UPDATE sys_macro
