@@ -431,7 +431,6 @@ $.currentIframe = function () {
  * @param opt
  * @returns {*}
  */
-$.fn.select2.defaults.set( "theme", "bootstrap" );
 $.fn.selectBindEx = function(opt) {
     var $select = $(this);
     var defaults = {
@@ -442,7 +441,8 @@ $.fn.selectBindEx = function(opt) {
         placeholder: '请选择...',
         selected: '',
         allowClear: false,
-        language: 'zh-CN',
+        theme: "bootstrap",
+        language: "zh-CN",
         change: function(){}
     }
     if (opt.search === false) {
@@ -460,12 +460,13 @@ $.fn.selectBindEx = function(opt) {
             selectControl = $select.select2(option);
             selectControl.empty().append("<option value=''></option>");
             $.each(r, function(idx, item){
-                if (option.selected === item[option.value]) {
-                    selectControl.append("<option value='"+item[option.value]+"' selected>"+item[option.text]+"</option>");
-                } else {
-                    selectControl.append("<option value='"+item[option.value]+"'>"+item[option.text]+"</option>");
-                }
+                // if (option.selected === item[option.value]) {
+                //     selectControl.append("<option value='"+item[option.value]+"' selected>"+item[option.text]+"</option>");
+                // } else {
+                // }
+                selectControl.append("<option value='"+item[option.value]+"'>"+item[option.text]+"</option>");
             })
+            $select.val(option.selected);
             $select.on('change', function() {
                 option.change($select.val());
             });
@@ -483,7 +484,8 @@ $.fn.selectBindEx = function(opt) {
 $.fn.selectInitEx = function(placeholder, search) {
     var opt = {
         placeholder: placeholder,
-        language: 'zh-CN'
+        theme: "bootstrap",
+        language: "zh-CN"
     }
     if (search === false) {
         opt.minimumResultsForSearch = 'Infinity';
