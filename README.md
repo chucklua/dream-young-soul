@@ -69,3 +69,4 @@
 ![image](http://oss.chenlintech.com/lte/3.png)
 ![image](http://oss.chenlintech.com/lte/4.png)
 ![image](http://oss.chenlintech.com/lte/5.png)
+![image](http://oss.chenlintech.com/lte/select2.png)
