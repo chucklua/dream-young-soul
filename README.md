@@ -3,7 +3,7 @@
 ### 传送门
 - dp-LTE：[http://git.oschina.net/zhocuhenglin/dp-security/](http://git.oschina.net/zhocuhenglin/dp-security/)
 - dp-PRO：[http://git.oschina.net/zhocuhenglin/dp-pro](http://git.oschina.net/zhocuhenglin/dp-pro)
-- dp-ADMIN：dp-pro未拆分版本，简化项目分层，更快整合前中台服务；项目见dp-pro的dp分支
+- dp-ADMIN：dp-pro未拆分版本，采用全新交互逻辑及代码优化，简化项目分层，更快整合前中台服务；项目见dp-pro的dp分支
 - dp-GEN：[http://git.oschina.net/zhocuhenglin/dp-generator](http://git.oschina.net/zhocuhenglin/dp-generator)
 - dp-BOOT：[https://gitee.com/zhocuhenglin/dp-boot](https://gitee.com/zhocuhenglin/dp-BOOT)
 - 项目文档（包含常见问题解答）：[http://dp-dev.mydoc.io/](http://dp-dev.mydoc.io/)
