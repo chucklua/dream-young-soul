@@ -3,11 +3,9 @@
 ### 传送门
 - dp-LTE：[http://git.oschina.net/zhocuhenglin/dp-security/](http://git.oschina.net/zhocuhenglin/dp-security/)
 - dp-PRO：[http://git.oschina.net/zhocuhenglin/dp-pro](http://git.oschina.net/zhocuhenglin/dp-pro)
-- dp-ADMIN：dp-pro未拆分版本，采用全新交互逻辑及代码优化，简化项目分层，更快整合前中台服务；项目见dp-pro的dp分支
 - dp-GEN：[http://git.oschina.net/zhocuhenglin/dp-generator](http://git.oschina.net/zhocuhenglin/dp-generator)
 - dp-BOOT：[https://gitee.com/zhocuhenglin/dp-boot](https://gitee.com/zhocuhenglin/dp-BOOT)
 - 项目文档（包含常见问题解答）：[http://dp-dev.mydoc.io/](http://dp-dev.mydoc.io/)
-- 最新进展详情及更多新特性，请关注 dp-PRO项目
 （dp-PRO支持动态数据源切换、分布式session、多tab页标签菜单、代码生成器【生成代码也适用于dp-LTE】、自定义日志） 
 ### 项目拓展
 - [基于系统参数管理实现动态select控件](https://my.oschina.net/zhouchenglin/blog/1615653)
@@ -20,6 +18,7 @@
 - 支持通过velocity模板生成部分代码，可直接生成到项目路径，无须二次部署（见文档）
 - 基于角色的权限管理，细分到按钮权限（dp-PRO支持数据权限）
 - 基于Maven模块化开发，可快速扩展个性化业务模块
+- 封装常用开发组件，目前已集成select2、switchery及富文本组件
 ### 技术方案
 - 核心框架：Spring
 - WEB框架：SpringMVC
@@ -29,7 +28,7 @@
 - 模板框架：thymeleaf（支持freemarker、jsp等其他自定义视图）
 - 主页框架：adminLTE(Bootstrap)
 - JS框架：vue.js
-- 表格插件：bootstrap-table
+- 表格插件：bootstrap-table(扩展分页跳转)
 - 树形表格：tree-grid(基于bootstrap扩展)
 - 树形插件：ztree
 - 弹窗组件：layer
