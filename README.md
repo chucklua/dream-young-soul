@@ -48,7 +48,6 @@
 ### 交流反馈
 - os-china仓库：[http://git.oschina.net/zhocuhenglin/dp-security/](http://git.oschina.net/zhocuhenglin/dp-security/)
 - 项目文档：[http://dp-dev.mydoc.io/](http://dp-dev.mydoc.io/)，二次开发手册参见3.4节
-- 作者主页：[http://www.chenlintech.com/](http://www.chenlintech.com/)
 - 交流QQ群：553461392
 - 如果对项目感兴趣，请Watch、Star项目，后期会不定时发布更新
 ### 命名规范（参考阿里巴巴Java开发手册）
@@ -61,7 +60,7 @@
 ### 应用分层（参考阿里巴巴Java开发手册）
 ![image](http://oss.chenlintech.com/common/0.png)
 ### 项目演示
-- 演示地址：[http://dp.chenlintech.com](http://dp.chenlintech.com)
+- 演示地址：[http://dp.chenlintech.com](http://119.29.189.175:8080/dp/login.html)
 - 账号密码：admin / 1
 ### 运行效果
 ![image](http://oss.chenlintech.com/lte/1.png)
