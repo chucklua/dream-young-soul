@@ -68,6 +68,7 @@ $.fn.bootstrapTableEx = function(opt){
         pageSize: 10,
         pageList: [10, 20, 30, 40, 50],
         paginationLoop: false,
+        paginationShowPageGo: true,
         sidePagination: 'server',
         queryParamsType : null,
         columns: []
@@ -458,7 +459,6 @@ $.fn.selectBindEx = function(opt) {
         data: null,
         success: function(r) {
             selectControl = $select.select2(option);
-            selectControl.empty().append("<option value=''></option>");
             $.each(r, function(idx, item){
                 // if (option.selected === item[option.value]) {
                 //     selectControl.append("<option value='"+item[option.value]+"' selected>"+item[option.text]+"</option>");
