@@ -9,13 +9,13 @@ $(function () {
 
 function initialPage() {
 	$(window).resize(function() {
-		Menu.table.resetHeight({height: $(window).height()-100});
+		TreeGrid.table.resetHeight({height: $(window).height()-100});
 	});
 }
 
 function getGrid() {
-	var colunms = Menu.initColumn();
-    var table = new TreeTable(Menu.id, '../../sys/menu/list?_' + $.now(), colunms);
+	var colunms = TreeGrid.initColumn();
+    var table = new TreeTable(TreeGrid.id, '../../sys/menu/list?_' + $.now(), colunms);
     table.setExpandColumn(2);
     table.setIdField("menuId");
     table.setCodeField("menuId");
@@ -23,14 +23,14 @@ function getGrid() {
     table.setExpandAll(false);
     table.setHeight($(window).height()-100);
     table.init();
-    Menu.table = table;
+    TreeGrid.table = table;
 }
 
 var vm = new Vue({
 	el:'#dpLTE',
 	methods : {
 		load: function() {
-			Menu.table.refresh();
+			TreeGrid.table.refresh();
 		},
 		save: function() {
 			dialogOpen({
@@ -45,7 +45,7 @@ var vm = new Vue({
 			});
 		},
 		edit: function() {
-			var ck = Menu.table.getSelectedRow();
+			var ck = TreeGrid.table.getSelectedRow();
 			if(checkedRow(ck)){
 				dialogOpen({
 					title: '编辑菜单',
@@ -64,7 +64,7 @@ var vm = new Vue({
 			}
 		},
 		remove: function() {
-			var ck = Menu.table.getSelectedRow(), ids = [];
+			var ck = TreeGrid.table.getSelectedRow(), ids = [];
 			if(checkedArray(ck)){
 				$.each(ck, function(idx, item){
 					ids[idx] = item.id;
@@ -81,7 +81,7 @@ var vm = new Vue({
 	}
 })
 
-var Menu = {
+var TreeGrid = {
     id: "dataGrid",
     table: null,
     layerIndex: -1
@@ -90,7 +90,7 @@ var Menu = {
 /**
  * 初始化表格的列
  */
-Menu.initColumn = function () {
+TreeGrid.initColumn = function () {
     var columns = [
         {field: 'selectItem', radio: true},
         {title: '编号', field: 'menuId', visible: false, align: 'center', valign: 'middle', width: '50px'},
