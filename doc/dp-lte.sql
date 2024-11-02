@@ -4,7 +4,7 @@ Navicat MySQL Data Transfer
 Source Server         : mysql192.168.180.134
 Source Server Version : 50548
 Source Host           : 192.168.180.134:3306
-Source Database       : dp-security
+Source Database       : dp-lte
 
 Target Server Type    : MYSQL
 Target Server Version : 50548
@@ -24,7 +24,7 @@ CREATE TABLE `sys_log` (
   `user_id` bigint(20) DEFAULT NULL COMMENT '用户id',
   `username` varchar(50) DEFAULT NULL COMMENT '用户名',
   `operation` varchar(50) DEFAULT NULL COMMENT '用户操作',
-  `time` int(11) DEFAULT NULL COMMENT '相应时间',
+  `time` int(11) DEFAULT NULL COMMENT '响应时间',
   `method` varchar(200) DEFAULT NULL COMMENT '请求方法',
   `params` varchar(5000) DEFAULT NULL COMMENT '请求参数',
   `ip` varchar(64) DEFAULT NULL COMMENT 'IP地址',
