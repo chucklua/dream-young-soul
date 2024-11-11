@@ -5,15 +5,13 @@
 
 1. 加强数据参数校验，新增、修改、删除进行合法性检查
 2. 基于机构管理的数据权限（机构管理、数据权限）
-3. 行政区域管理，数据来自国家统计局最新行政区域代码数据
-4. 后期会逐步更新代码生成器，定时任务管理等常用模块
+3. 行政区域管理，数据来自国家统计局2017-03-10发布最新行政区域代码数据
 
 ### 项目介绍
-- 一个轻量级的Java快速开发平台(框架)，能快速开发项目并交付
+- 一个轻量级的Java快速开发框架，能快速开发项目并交付
 - 友好的代码结构及注释，便于阅读及二次开发
 - 命名规范和工程分层规约参考阿里巴巴JAVA开发规范（参考阿里巴巴Java开发手册 v1.2.0）
 - 前后端开发封装，快速实现CRUD开发
-- 完善的XSS防范及脚本过滤，彻底杜绝XSS攻击（参考开源方案）
 - 基于角色的权限管理，细分到按钮权限
 - 基于Maven模块化开发，可快速实现个性化业务模块
 ### 技术方案
@@ -38,10 +36,9 @@
 - dp-base：基础模块，目前包含通用字典和系统日志管理
 ### 交流反馈
 - os-china仓库：[http://git.oschina.net/zhocuhenglin/dp-security/](http://git.oschina.net/zhocuhenglin/dp-security/)
-- git-hub仓库：[https://github.com/yczxl/dp-security/](https://github.com/yczxl/dp-security/)
 - 作者主页：[http://www.chenlintech.com/](http://www.chenlintech.com/)
-- 交流QQ群：553461392  [点击链接加入群【DP系列开源项目交流群】](https://jq.qq.com/?_wv=1027&k=4ECE8hk)
-- 如需关注项目最新动态，请Watch、Star项目，也是对项目最好的支持
+- 交流QQ群：553461392
+- 如果对项目感兴趣，请Watch、Star项目，后期会不定时发布更新
 ### 命名规范（参考阿里巴巴Java开发手册）
 -  获取单个对象的方法用 get 做前缀
 -  获取多个对象的方法用 list 做前缀
@@ -51,19 +48,6 @@
 -  修改的方法用 update 做前缀
 ### 应用分层（参考阿里巴巴Java开发手册）
 ![image](http://chenlintech.com:8080/statics/img/0.png)
-### 软件环境
-- JDK1.7+
-- MySQL5.5+
-- Tomcat7.0+
-- Maven3.0
-- Eclipse或者IDEA（IDE开发环境）
-### 本地部署
-- 从git上下载代码
-- 创建数据库，导入doc下脚本
-- 修改orm模块下db.properties文件，修改数据库配置信息
-- 使用eclipse，idea下运行项目
-- 通过http://localhost:8080/dp-security访问
-- 账号密码：admin / 1
 ### 项目演示
 - 演示地址：[http://security.chenlintech.com](http://security.chenlintech.com)
 - 账号密码：admin / 1
