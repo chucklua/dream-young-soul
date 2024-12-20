@@ -69,7 +69,7 @@ public class CommonUtils {
 	 * @param data
 	 * @return
 	 */
-	public static R msgNotNull(Object data) {
+	public static R msgNotCheckNull(Object data) {
 		return R.ok().put(SystemConstant.DATA_ROWS, data);
 	}
 	
