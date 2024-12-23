@@ -65,7 +65,7 @@ public class SysUserServiceImpl implements SysUserService {
 	@Override
 	public R listUserPerms(Long userId) {
 		Set<String> perms = sysUserManager.listUserPerms(userId);
-		return CommonUtils.msgNotNull(perms);
+		return CommonUtils.msgNotCheckNull(perms);
 	}
 
 	@Override
