@@ -63,7 +63,7 @@ public class SysRoleServiceImpl implements SysRoleService {
 	@Override
 	public R listRole() {
 		List<SysRoleEntity> roleList = sysRoleManager.listRole();
-		return CommonUtils.msgNotNull(roleList);
+		return CommonUtils.msgNotCheckNull(roleList);
 	}
 
 	@Override

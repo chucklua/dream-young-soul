@@ -48,7 +48,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 		root.setParentId(-1L);
 		root.setOpen(true);
 		menuList.add(root);
-		return CommonUtils.msgNotNull(menuList);
+		return CommonUtils.msgNotCheckNull(menuList);
 	}
 
 	@Override
