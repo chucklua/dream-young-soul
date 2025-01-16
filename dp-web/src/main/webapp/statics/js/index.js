@@ -160,6 +160,10 @@ var vm = new Vue({
 		var router = new Router();
 		routerList(router, vm.menuList);
 		router.start();
+		//默认展开第一个菜单
+		if(!$('.sidebar-menu li').hasClass('active')) {
+			$('.sidebar-menu li:eq(1)').addClass('active');
+		}
 	}
 });
 
