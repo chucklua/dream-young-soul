@@ -31,4 +31,6 @@ public interface SysMenuManager {
 	
 	int batchRemove(Long[] id);
 	
+	boolean hasChildren(Long[] id);
+	
 }

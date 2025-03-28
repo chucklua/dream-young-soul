@@ -3,6 +3,15 @@
 
 <mapper namespace="net.chenlin.dp.shiro.dao.SysMenuMapper">
 	
+	<select id="countMenuChildren" resultType="int">
+		SELECT
+			COUNT(*)
+		FROM
+			sys_menu
+		WHERE
+			parent_id = #{value}
+	</select>
+	
 	<select id="list" resultType="SysMenuEntity">
 		SELECT
 			m.menu_id,

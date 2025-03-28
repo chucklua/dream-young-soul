@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import net.chenlin.dp.common.constant.SystemConstant.MenuType;
 import net.chenlin.dp.common.entity.Query;
+import net.chenlin.dp.common.utils.CommonUtils;
 import net.chenlin.dp.shiro.dao.SysMenuMapper;
 import net.chenlin.dp.shiro.dao.SysRoleMenuMapper;
 import net.chenlin.dp.shiro.dao.SysUserMapper;
@@ -113,6 +114,17 @@ public class SysMenuManagerImpl implements SysMenuManager {
 		int count = sysMenuMapper.batchRemove(id);
 		sysRoleMenuMapper.batchRemoveByMenuId(id);
 		return count;
+	}
+
+	@Override
+	public boolean hasChildren(Long[] id) {
+		for(Long parentId : id) {
+			int count = sysMenuMapper.countMenuChildren(parentId);
+			if(CommonUtils.isIntThanZero(count)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

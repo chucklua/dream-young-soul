@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import net.chenlin.dp.common.constant.MsgConstant;
 import net.chenlin.dp.common.entity.Query;
 import net.chenlin.dp.common.entity.R;
 import net.chenlin.dp.common.utils.CommonUtils;
@@ -71,6 +72,10 @@ public class SysMenuServiceImpl implements SysMenuService {
 
 	@Override
 	public R batchRemove(Long[] id) {
+		boolean children = sysMenuManager.hasChildren(id);
+		if(children) {
+			return R.error(MsgConstant.MSG_HAS_CHILD);
+		}
 		int count = sysMenuManager.batchRemove(id);
 		return CommonUtils.msg(id, count);
 	}

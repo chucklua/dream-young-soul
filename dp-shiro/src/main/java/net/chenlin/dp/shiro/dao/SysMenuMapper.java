@@ -23,5 +23,7 @@ public interface SysMenuMapper extends BaseMapper<SysMenuEntity> {
 	List<SysMenuEntity> listNotButton();
 	
 	List<String> listUserPerms(Long userId);
+	
+	int countMenuChildren(Long parentId);
 
 }
