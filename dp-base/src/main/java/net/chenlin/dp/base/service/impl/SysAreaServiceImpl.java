@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import net.chenlin.dp.base.entity.SysAreaEntity;
 import net.chenlin.dp.base.manager.SysAreaManager;
 import net.chenlin.dp.base.service.SysAreaService;
+import net.chenlin.dp.common.constant.MsgConstant;
 import net.chenlin.dp.common.entity.Query;
 import net.chenlin.dp.common.entity.R;
 import net.chenlin.dp.common.utils.CommonUtils;
@@ -59,6 +60,10 @@ public class SysAreaServiceImpl implements SysAreaService {
 
 	@Override
 	public R batchRemoveArea(Long[] id) {
+		boolean children = sysAreaManager.hasChildren(id);
+		if(children) {
+			return R.error(MsgConstant.MSG_HAS_CHILD);
+		}
 		int count = sysAreaManager.batchRemoveArea(id);
 		return CommonUtils.msg(id, count);
 	}

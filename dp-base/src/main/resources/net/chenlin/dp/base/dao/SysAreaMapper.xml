@@ -3,6 +3,22 @@
 
 <mapper namespace="net.chenlin.dp.base.dao.SysAreaMapper">
 	
+	<select id="countAreaChildren" resultType="int">
+		SELECT
+			COUNT(*)
+		FROM
+			sys_area
+		WHERE
+			parent_code = (
+				SELECT
+					p.area_code
+				FROM
+					sys_area p
+				WHERE
+					p.area_id = #{value}
+			)
+	</select>
+	
 	<select id="listAreaByParentCode" resultType="SysAreaEntity">
 		SELECT
 			a.area_id,

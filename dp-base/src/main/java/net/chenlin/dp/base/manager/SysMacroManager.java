@@ -26,4 +26,6 @@ public interface SysMacroManager {
 	
 	int batchRemove(Long[] id);
 	
+	boolean hasChildren(Long[] id);
+	
 }

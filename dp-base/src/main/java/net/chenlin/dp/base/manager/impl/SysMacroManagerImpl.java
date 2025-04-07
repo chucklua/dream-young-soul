@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import net.chenlin.dp.base.dao.SysMacroMapper;
 import net.chenlin.dp.base.entity.SysMacroEntity;
 import net.chenlin.dp.base.manager.SysMacroManager;
+import net.chenlin.dp.common.utils.CommonUtils;
 
 /**
  * 通用字典
@@ -51,6 +52,17 @@ public class SysMacroManagerImpl implements SysMacroManager {
 	@Override
 	public int batchRemove(Long[] id) {
 		return sysMacroMapper.batchRemove(id);
+	}
+	
+	@Override
+	public boolean hasChildren(Long[] id) {
+		for(Long typeId : id) {
+			int count = sysMacroMapper.countMacroChildren(typeId);
+			if(CommonUtils.isIntThanZero(count)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

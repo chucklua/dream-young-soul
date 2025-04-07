@@ -9,6 +9,7 @@ import net.chenlin.dp.base.dao.SysAreaMapper;
 import net.chenlin.dp.base.entity.SysAreaEntity;
 import net.chenlin.dp.base.manager.SysAreaManager;
 import net.chenlin.dp.common.entity.Query;
+import net.chenlin.dp.common.utils.CommonUtils;
 
 /**
  * 行政区域
@@ -47,6 +48,17 @@ public class SysAreaManagerImpl implements SysAreaManager {
 	@Override
 	public int batchRemoveArea(Long[] id) {
 		return sysAreaMapper.batchRemove(id);
+	}
+	
+	@Override
+	public boolean hasChildren(Long[] id) {
+		for(Long typeId : id) {
+			int count = sysAreaMapper.countAreaChildren(typeId);
+			if(CommonUtils.isIntThanZero(count)) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 }

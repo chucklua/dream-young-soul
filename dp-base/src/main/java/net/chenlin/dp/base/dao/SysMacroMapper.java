@@ -20,4 +20,6 @@ public interface SysMacroMapper extends BaseMapper<SysMacroEntity> {
 
 	List<SysMacroEntity> listNotMacro();
 	
+	int countMacroChildren(Long typeId);
+	
 }

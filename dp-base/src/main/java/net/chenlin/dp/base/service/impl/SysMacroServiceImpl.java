@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import net.chenlin.dp.base.entity.SysMacroEntity;
 import net.chenlin.dp.base.manager.SysMacroManager;
 import net.chenlin.dp.base.service.SysMacroService;
+import net.chenlin.dp.common.constant.MsgConstant;
 import net.chenlin.dp.common.constant.SystemConstant.MacroType;
 import net.chenlin.dp.common.constant.SystemConstant.StatusType;
 import net.chenlin.dp.common.entity.R;
@@ -64,6 +65,10 @@ public class SysMacroServiceImpl implements SysMacroService {
 
 	@Override
 	public R batchRemove(Long[] id) {
+		boolean children = sysMacroManager.hasChildren(id);
+		if(children) {
+			return R.error(MsgConstant.MSG_HAS_CHILD);
+		}
 		int count = sysMacroManager.batchRemove(id);
 		return CommonUtils.msg(id, count);
 	}
