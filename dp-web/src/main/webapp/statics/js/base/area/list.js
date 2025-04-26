@@ -134,7 +134,6 @@ var vm = new Vue({
 				success : function(iframeId) {
 					top.frames[iframeId].vm.area.parentCode = vm.parentCode;
 					top.frames[iframeId].vm.area.parentName = vm.parentName;
-					top.frames[iframeId].vm.setForm();
 				},
 				yes : function(iframeId) {
 					top.frames[iframeId].vm.acceptClick();
