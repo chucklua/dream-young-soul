@@ -65,6 +65,13 @@ public interface BaseMapper<T> {
 	int update(Query query);
 	
 	/**
+	 * 批量更新
+	 * @param query
+	 * @return
+	 */
+	int batchUpdate(Query query);
+	
+	/**
 	 * 删除
 	 * @param id
 	 * @return
