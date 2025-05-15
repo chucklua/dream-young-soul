@@ -35,6 +35,12 @@
     
     <dependency>
       <groupId>net.chenlin.dp</groupId>
+      <artifactId>dp-quartz</artifactId>
+      <version>${dp-version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>net.chenlin.dp</groupId>
       <artifactId>dp-base</artifactId>
       <version>${dp-version}</version>
     </dependency>
