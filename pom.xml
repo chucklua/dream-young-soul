@@ -13,7 +13,7 @@
 		<module>dp-web</module>
 		<module>dp-base</module>
 		<module>dp-orm</module>
-    </modules>
+	</modules>
 
 	<properties>
 		<!-- base settting -->
