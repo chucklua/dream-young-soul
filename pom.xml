@@ -13,6 +13,7 @@
 		<module>dp-web</module>
 		<module>dp-base</module>
 		<module>dp-orm</module>
+		<module>dp-quartz</module>
 	</modules>
 
 	<properties>
