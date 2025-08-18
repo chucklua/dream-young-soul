@@ -25,9 +25,10 @@ import net.chenlin.dp.common.utils.ShiroUtils;
 /**
  * 系统日志，切面处理类
  * 
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2017年3月8日 上午11:07:35
+ * @author ZhouChenglin
+ * @email yczclcn@163.com
+ * @url www.chenlintech.com
+ * @date 2017年8月28日 上午11:07:35
  */
 @Aspect
 @Component
