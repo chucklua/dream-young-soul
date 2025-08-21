@@ -50,13 +50,13 @@
 -  删除的方法用 remove(推荐) 或 delete 做前缀
 -  修改的方法用 update 做前缀
 ### 应用分层（参考阿里巴巴Java开发手册）
-![image](http://chenlintech.com:8080/statics/img/0.png)
+![image](http://chenlintech.com:8080/statics/common/0.png)
 ### 项目演示
 - 演示地址：[http://security.chenlintech.com](http://security.chenlintech.com)
 - 账号密码：admin / 1
 ### 运行效果
-![image](http://chenlintech.com:8080/statics/img/1.png)
-![image](http://chenlintech.com:8080/statics/img/2.png)
-![image](http://chenlintech.com:8080/statics/img/3.png)
-![image](http://chenlintech.com:8080/statics/img/4.png)
-![image](http://chenlintech.com:8080/statics/img/5.png)
+![image](http://chenlintech.com:8080/statics/lte/1.png)
+![image](http://chenlintech.com:8080/statics/lte/2.png)
+![image](http://chenlintech.com:8080/statics/lte/3.png)
+![image](http://chenlintech.com:8080/statics/lte/4.png)
+![image](http://chenlintech.com:8080/statics/lte/5.png)
