@@ -80,6 +80,7 @@ public class SysRoleManagerImpl implements SysRoleManager {
 			query.put("menuIdList", role.getMenuIdList());
 			count = sysRoleMenuMapper.save(query);
 		}
+		return count;
 	}
 	
 }
