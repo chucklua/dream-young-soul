@@ -33,7 +33,7 @@
 ### 项目结构
 - dp-security：父级（聚合）模块
 - dp-common：公共通用模块
-- dp-shiro：权限模块
+- dp-shiro：权限模块（操作权限）
 - dp-orm：数据持久模块
 - dp-quartz：定时任务模块
 - dp-web：前端界面
