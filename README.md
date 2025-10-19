@@ -1,6 +1,10 @@
 # dp-LTE
 基于SSM框架的轻量级开发框架，已经完成基于角色的操作权限管理，对前后端进行封装，可快速实现CRUD的开发。项目采用Maven多模块构建，方便按需求进行模块化扩展。
-
+### 传送门
+- dp-LTE：[http://git.oschina.net/zhocuhenglin/dp-security/](http://git.oschina.net/zhocuhenglin/dp-security/)
+- dp-PRO：[http://git.oschina.net/zhocuhenglin/dp-pro](http://git.oschina.net/zhocuhenglin/dp-pro)
+- dp-GEN：[http://git.oschina.net/zhocuhenglin/dp-generator](http://git.oschina.net/zhocuhenglin/dp-generator)
+- 项目文档：[http://dp-dev.mydoc.io/](http://dp-dev.mydoc.io/)
 ###  :fa-thumbs-o-up: 更新说明
 
 1. 加强数据参数校验，删除时含有子节点数据不可删除进行合法性检查（已更新）
