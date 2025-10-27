@@ -5,6 +5,7 @@
 - dp-PRO：[http://git.oschina.net/zhocuhenglin/dp-pro](http://git.oschina.net/zhocuhenglin/dp-pro)
 - dp-GEN：[http://git.oschina.net/zhocuhenglin/dp-generator](http://git.oschina.net/zhocuhenglin/dp-generator)
 - 项目文档：[http://dp-dev.mydoc.io/](http://dp-dev.mydoc.io/)
+- 最新进展详情，请关注 dp-PRO 项目
 ###  :fa-thumbs-o-up: 更新说明
 
 1. 加强数据参数校验，删除时含有子节点数据不可删除进行合法性检查（已更新）
