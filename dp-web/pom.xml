@@ -5,7 +5,7 @@
   <parent>
     <groupId>net.chenlin.dp</groupId>
     <artifactId>dp-security</artifactId>
-    <version>${dp-version}</version>
+    <version>1.2.6</version>
   </parent>
   <artifactId>dp-web</artifactId>
   <packaging>war</packaging>
@@ -18,31 +18,31 @@
     <dependency>
       <groupId>net.chenlin.dp</groupId>
       <artifactId>dp-common</artifactId>
-      <version>${dp-version}</version>
+      <version>${project.version}</version>
     </dependency>
     
     <dependency>
       <groupId>net.chenlin.dp</groupId>
       <artifactId>dp-shiro</artifactId>
-      <version>${dp-version}</version>
+      <version>${project.version}</version>
     </dependency>
     
     <dependency>
       <groupId>net.chenlin.dp</groupId>
       <artifactId>dp-orm</artifactId>
-      <version>${dp-version}</version>
+      <version>${project.version}</version>
     </dependency>
     
     <dependency>
       <groupId>net.chenlin.dp</groupId>
       <artifactId>dp-quartz</artifactId>
-      <version>${dp-version}</version>
+      <version>${project.version}</version>
     </dependency>
     
     <dependency>
       <groupId>net.chenlin.dp</groupId>
       <artifactId>dp-base</artifactId>
-      <version>${dp-version}</version>
+      <version>${project.version}</version>
     </dependency>
     
   </dependencies>
