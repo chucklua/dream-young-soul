@@ -4,17 +4,9 @@
 - dp-LTE：[http://git.oschina.net/zhocuhenglin/dp-security/](http://git.oschina.net/zhocuhenglin/dp-security/)
 - dp-PRO：[http://git.oschina.net/zhocuhenglin/dp-pro](http://git.oschina.net/zhocuhenglin/dp-pro)
 - dp-GEN：[http://git.oschina.net/zhocuhenglin/dp-generator](http://git.oschina.net/zhocuhenglin/dp-generator)
+- dp-BOOT：[https://gitee.com/zhocuhenglin/dp-boot](https://gitee.com/zhocuhenglin/dp-BOOT)
 - 项目文档：[http://dp-dev.mydoc.io/](http://dp-dev.mydoc.io/)
 - 最新进展详情，请关注 dp-PRO 项目
-###  :fa-thumbs-o-up: 更新说明
-
-1. 加强数据参数校验，删除时含有子节点数据不可删除进行合法性检查（已更新）
-2. 基于机构管理的数据权限（机构管理、数据权限）（完成待更新）
-3. 行政区域管理，数据来自国家统计局2017-03-10发布最新行政区域代码数据（已更新）
-4. 修复左侧菜单超出高度隐藏bug，更新为超出高度出现滚动条（已更新）
-5. 新增定时任务模块（已更新）
-6. 基于此项目结构的代码生成器，生成java、html、js文件（开发中）
-7. 项目文档：[http://dp-dev.mydoc.io/](http://dp-dev.mydoc.io/)
 
 ### 项目介绍
 - 一个轻量级的Java快速开发框架，能快速开发项目并交付（规划后期不定时发布更新）
