@@ -56,4 +56,6 @@
 			role_id = #{value}
 	</delete>
 
+	<cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+
 </mapper>

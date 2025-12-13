@@ -107,6 +107,8 @@
 		<foreach item="id" collection="array" open="(" separator="," close=")">
 			#{id}
 		</foreach>
-	</delete>	
+	</delete>
+
+	<cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
 
 </mapper>

@@ -150,4 +150,6 @@
 			m.order_num ASC
 	</select>
 
+	<cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+
 </mapper>

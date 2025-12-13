@@ -97,4 +97,6 @@
 			u.user_id = #{role}
 	</select>
 
+	<cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+
 </mapper>

@@ -53,4 +53,6 @@
 			user_id = #{value}
 	</select>
 
+	<cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+
 </mapper>
