@@ -45,8 +45,10 @@ var vm = new Vue({
 		hideMenu : function() {
 			if (!$("body").hasClass("sidebar-collapse")) {
 				$("body").addClass("sidebar-collapse");
+                removeScroll();
 			} else {
 				$("body").removeClass("sidebar-collapse");
+                setScroll();
 			}
 		},
 		getMenuList : function(event) {
@@ -193,10 +195,20 @@ function routerList(router, menuList) {
 
 //菜单滚动条自适应
 function setScroll(){
-    $(".sidebar-menu").slimScroll({
+    $("#sidebar-menu").slimScroll({
         height: $(this).height() - 50,
         alwaysVisible: false,
     });
+    $(window).on("resize", function() {
+        $("#sidebar-menu").slimScroll({
+            height: $(this).height() - 50,
+            alwaysVisible: false,
+        });
+    });
 }
 
-$(window).on("resize",setScroll);
+function removeScroll() {
+    $('.sidebar').append($('#sidebar-menu'));
+    $('#sidebar-menu').removeAttr('style');
+    $('.slimScrollDiv').remove();
+}
