@@ -3,7 +3,7 @@
 
 <mapper namespace="net.chenlin.dp.quartz.dao.QuartzJobLogMapper">
 	
-	<select id="listForPage" resultType="QuartzJobLogEntity">
+	<select id="listForPage" resultType="QuartzJobLogEntity" flushCache="true">
 		SELECT
 			log_id,
 			job_id,

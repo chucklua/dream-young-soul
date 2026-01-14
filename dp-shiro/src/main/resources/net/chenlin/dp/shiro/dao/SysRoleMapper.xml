@@ -13,7 +13,7 @@
 			role_id ASC
 	</select>
 	
-	<select id="listForPage" resultType="SysRoleEntity">
+	<select id="listForPage" resultType="SysRoleEntity" flushCache="true">
 		SELECT
 			role_id,
 			role_name,

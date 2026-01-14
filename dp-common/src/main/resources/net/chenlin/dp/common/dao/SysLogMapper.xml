@@ -3,7 +3,7 @@
 
 <mapper namespace="net.chenlin.dp.common.dao.SysLogMapper">
 	
-	<select id="listForPage" resultType="SysLogEntity">
+	<select id="listForPage" resultType="SysLogEntity" flushCache="true">
 		SELECT
 			id,
 			user_id,

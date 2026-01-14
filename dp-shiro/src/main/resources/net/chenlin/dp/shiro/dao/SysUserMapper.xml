@@ -3,7 +3,7 @@
 
 <mapper namespace="net.chenlin.dp.shiro.dao.SysUserMapper">
 	
-	<select id="listForPage" resultType="SysUserEntity">
+	<select id="listForPage" resultType="SysUserEntity" flushCache="true">
 		SELECT
 			user_id,
 			username,
