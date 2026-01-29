@@ -27,16 +27,5 @@ public class SysPageController {
 			@PathVariable("url") String url) {
 		return module + "/" + function + "/" + url + ".html";
 	}
-	
-	/**
-	 * 页面跳转
-	 * @param module
-	 * @param url
-	 * @return
-	 */
-	@RequestMapping("{module}/{url}.html")
-	public String page(@PathVariable("module") String module, @PathVariable("url") String url) {
-		return module + "/" + url + ".html";
-	}
 
 }

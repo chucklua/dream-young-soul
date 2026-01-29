@@ -4,34 +4,7 @@
   xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
   http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
   version="3.1"  metadata-complete="false">
-  
-  <context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>
-			classpath:spring-mvc.xml
-			classpath:spring-jdbc.xml
-			classpath*:dp-*.xml
-		</param-value>
-	</context-param>
-	
-	<context-param>
-		<param-name>log4jRefreshInterval</param-name>
-		<param-value>600000</param-value>
-	</context-param>
-	
-	<context-param>
-		<param-name>webAppRootKey</param-name>
-		<param-value>dp-security</param-value>
-	</context-param>
-	
-	<listener>
-		<listener-class>org.springframework.web.util.WebAppRootListener</listener-class>
-	</listener>
-	
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-	
+
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -40,31 +13,56 @@
 			<param-value>UTF-8</param-value>
 		</init-param>
 	</filter>
-	
+
 	<filter-mapping>
 		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
-	<!-- 配置Shiro过滤器,先让Shiro过滤系统接收到的请求 -->  
-	<!-- 这里filter-name必须对应applicationContext.xml中定义的<bean id="shiroFilter"/> -->  
-	<!-- 使用[/*]匹配所有请求,保证所有的可控请求都经过Shiro的过滤 -->  
-	<!-- 通常会将此filter-mapping放置到最前面(即其他filter-mapping前面),以保证它是过滤器链中第一个起作用的 --> 
+
+	<!-- 日志配置 -->
+	<context-param>
+		<param-name>log4jRefreshInterval</param-name>
+		<param-value>600000</param-value>
+	</context-param>
+
+	<!-- WEB应用标识，同一个tomcat部署多个时区分 -->
+	<context-param>
+		<param-name>webAppRootKey</param-name>
+		<param-value>dp-lte</param-value>
+	</context-param>
+
+	<listener>
+		<listener-class>org.springframework.web.util.WebAppRootListener</listener-class>
+	</listener>
+
+	<!-- 默认的spring配置文件是在WEB-INF下的applicationContext.xml -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath*:applicationContext*.xml
+		</param-value>
+	</context-param>
+
+	<!-- 配置Shiro过滤器 -->
 	<filter>
-	    <filter-name>shiroFilter</filter-name>
-	    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-	    <init-param>
-	    	<!-- 该值缺省为false,表示生命周期由SpringApplicationContext管理,设置为true则表示由servlet container管理 -->
-	        <param-name>targetFilterLifecycle</param-name>
-	        <param-value>true</param-value>
-	    </init-param>
+		<filter-name>shiroFilter</filter-name>
+		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+		<init-param>
+			<!-- 该值缺省为false,表示生命周期由SpringApplicationContext管理,设置为true则表示由servlet container管理 -->
+			<param-name>targetFilterLifecycle</param-name>
+			<param-value>true</param-value>
+		</init-param>
 	</filter>
-	
+
 	<filter-mapping>
-	    <filter-name>shiroFilter</filter-name>
-	    <url-pattern>/*</url-pattern>
+		<filter-name>shiroFilter</filter-name>
+		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
+	<!-- xss过滤器 -->
 	<filter>
 		<filter-name>xssFilter</filter-name>
 		<filter-class>net.chenlin.dp.common.xss.XssFilter</filter-class>
@@ -74,28 +72,54 @@
 		<filter-name>xssFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+
+	<!-- SpringMVC控制器 -->
 	<servlet>
-        <servlet-name>dispatcher</servlet-name>
-        <servlet-class>
-            org.springframework.web.servlet.DispatcherServlet
-        </servlet-class>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
-    
+		<servlet-name>springMVC</servlet-name>
+		<servlet-class>
+			org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath*:springMVC-servlet.xml</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
 	<servlet-mapping>
-		<servlet-name>dispatcher</servlet-name>
+		<servlet-name>springMVC</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-    
-    <error-page>
-		<error-code>404</error-code>
-		<location>/error/404.html</location>
+
+	<!-- Druid监控 -->
+	<servlet>
+		<servlet-name>DruidStatView</servlet-name>
+		<servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>DruidStatView</servlet-name>
+		<url-pattern>/druid/*</url-pattern>
+	</servlet-mapping>
+
+	<!-- 欢迎页 -->
+	<welcome-file-list>
+		<welcome-file>login.html</welcome-file>
+	</welcome-file-list>
+
+
+	<!-- 错误页面 -->
+	<error-page>
+		<error-code>403</error-code>
+		<location>/WEB-INF/view/error/403.jsp</location>
 	</error-page>
-	
+	<error-page>
+		<error-code>404</error-code>
+		<location>/WEB-INF/view/error/404.jsp</location>
+	</error-page>
 	<error-page>
 		<error-code>500</error-code>
-		<location>/error/500.html</location>
+		<location>/WEB-INF/view/error/500.jsp</location>
 	</error-page>
   
 </web-app>
