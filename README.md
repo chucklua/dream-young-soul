@@ -6,7 +6,7 @@
 - dp-GEN：[http://git.oschina.net/zhocuhenglin/dp-generator](http://git.oschina.net/zhocuhenglin/dp-generator)
 - dp-BOOT：[https://gitee.com/zhocuhenglin/dp-boot](https://gitee.com/zhocuhenglin/dp-BOOT)
 - 项目文档（包含常见问题解答）：[http://dp-dev.mydoc.io/](http://dp-dev.mydoc.io/)
-- 最新进展详情，请关注 dp-PRO 项目
+- 最新进展详情个更多新特性，请关注 dp-PRO 项目
 
 ### 项目介绍
 - 一个轻量级的Java快速开发框架，能快速开发项目并交付（规划后期不定时发布更新）
