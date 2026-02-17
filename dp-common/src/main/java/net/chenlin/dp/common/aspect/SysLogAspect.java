@@ -17,7 +17,7 @@ import net.chenlin.dp.common.entity.SysUserEntity;
 import net.chenlin.dp.common.manager.SysLogManager;
 import net.chenlin.dp.common.utils.CommonUtils;
 import net.chenlin.dp.common.utils.HttpContextUtils;
-import net.chenlin.dp.common.utils.IPUtils;
+import net.chenlin.dp.common.utils.IpUtils;
 import net.chenlin.dp.common.utils.JSONUtils;
 import net.chenlin.dp.common.utils.ShiroUtils;
 
@@ -78,7 +78,7 @@ public class SysLogAspect {
 		//获取request
 		HttpServletRequest request = HttpContextUtils.getHttpServletRequest();
 		//设置IP地址
-		sysLog.setIp(IPUtils.getIpAddr(request));
+		sysLog.setIp(IpUtils.getIpAddr(request));
 		//用户名
 		SysUserEntity currUser = ShiroUtils.getUserEntity();
 		if(CommonUtils.isNullOrEmpty(currUser)) {
