@@ -39,7 +39,7 @@
 - dp-base：基础模块，目前包含行政区域、通用字典和系统日志功能模块
 ### 交流反馈
 - os-china仓库：[http://git.oschina.net/zhocuhenglin/dp-security/](http://git.oschina.net/zhocuhenglin/dp-security/)
-- 项目文档：[http://dp-dev.mydoc.io/](http://dp-dev.mydoc.io/)
+- 项目文档：[http://dp-dev.mydoc.io/](http://dp-dev.mydoc.io/)，二次开发手册参见3.4节
 - 作者主页：[http://www.chenlintech.com/](http://www.chenlintech.com/)
 - 交流QQ群：553461392
 - 如果对项目感兴趣，请Watch、Star项目，后期会不定时发布更新
@@ -51,13 +51,13 @@
 -  删除的方法用 remove(推荐) 或 delete 做前缀
 -  修改的方法用 update 做前缀
 ### 应用分层（参考阿里巴巴Java开发手册）
-![image](http://chenlintech.com:8080/statics/common/0.png)
+![image](http://oss.chenlintech.com/common/0.png)
 ### 项目演示
 - 演示地址：[http://dp.chenlintech.com](http://dp.chenlintech.com)
 - 账号密码：admin / 1
 ### 运行效果
-![image](http://chenlintech.com:8080/statics/lte/1.png)
-![image](http://chenlintech.com:8080/statics/lte/2.png)
-![image](http://chenlintech.com:8080/statics/lte/3.png)
-![image](http://chenlintech.com:8080/statics/lte/4.png)
-![image](http://chenlintech.com:8080/statics/lte/5.png)
+![image](http://oss.chenlintech.com/lte/1.png)
+![image](http://oss.chenlintech.com/lte/2.png)
+![image](http://oss.chenlintech.com/lte/3.png)
+![image](http://oss.chenlintech.com/lte/4.png)
+![image](http://oss.chenlintech.com/lte/5.png)
