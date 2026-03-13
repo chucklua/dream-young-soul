@@ -29,6 +29,7 @@
 	    <property name="unauthorizedUrl" value="/WEB-INF/view/error/403.jsp"/>
 		<property name="filterChainDefinitions">
 			<value>
+				/favicon.ico=anon
 				/statics/**=anon
 				/WEB-INF/view/error/**=anon
 				/login.html=anon
