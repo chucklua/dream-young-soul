@@ -45,28 +45,22 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 
-	<!-- Velocity视图解析器 默认视图 -->
-	<bean id="velocityViewResolver"
-		class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
-		<property name="contentType" value="text/html;charset=UTF-8" />
-		<property name="viewNames" value="*.html" />
-		<property name="suffix" value="" />
-		<property name="dateToolAttribute" value="date" />
-		<property name="numberToolAttribute" value="number" />
-		<property name="requestContextAttribute" value="rc" />
-		<property name="order" value="0" />
+	<!-- Thymeleaf视图解析器 默认视图 -->
+	<bean id="templateResolver" class="org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver">
+		<property name="order" value="0"/>
+		<property name="prefix" value="/WEB-INF/view/"/>
+		<property name="suffix" value=".html"/>
+		<property name="templateMode" value="HTML"/>
+		<property name="cacheable" value="false"/>
+		<property name="characterEncoding" value="UTF-8"/>
 	</bean>
-
-	<bean id="velocityConfigurer"
-		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
-		<property name="resourceLoaderPath" value="/WEB-INF/view/" />
-		<property name="velocityProperties">
-			<props>
-				<prop key="input.encoding">UTF-8</prop>
-				<prop key="output.encoding">UTF-8</prop>
-				<prop key="contentType">text/html;charset=UTF-8</prop>
-			</props>
-		</property>
+	<bean id="templateEngine" class="org.thymeleaf.spring4.SpringTemplateEngine">
+		<property name="templateResolver" ref="templateResolver"/>
+		<property name="enableSpringELCompiler" value="true"/>
+	</bean>
+	<bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
+		<property name="templateEngine" ref="templateEngine"/>
+		<property name="characterEncoding" value="UTF-8"/>
 	</bean>
 
 	<!-- JSP视图解析器 -->

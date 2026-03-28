@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>新增-菜单管理</title>
-#parse("include/header.html")
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/header_css::header('选择上级-通用字典')"></head>
 <body>
 	<div id="dpLTE" class="container-fluid" v-cloak>
 		<ul id="macroTree" class="ztree"></ul>
 	</div>
-	#parse("include/footer.html")
+	<div th:include="include/footer_js::footer"></div>
 	<script type="text/javascript">
 	var setting = {
 		data : {

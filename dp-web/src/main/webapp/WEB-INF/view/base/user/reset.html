@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>重置密码-用户管理</title>
-#parse("include/header.html")
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/header_css::header('重置密码-用户管理')"></head>
 <body>
 	<div id="dpLTE" class="container-fluid" v-cloak>
 		<table class="form" id="form">
@@ -15,7 +12,7 @@
         	</tr>
 		</table>
 	</div>
-	#parse("include/footer.html")
+	<div th:include="include/footer_js::footer"></div>
 	<script type="text/javascript">
 	var vm = new Vue({
 		el:'#dpLTE',

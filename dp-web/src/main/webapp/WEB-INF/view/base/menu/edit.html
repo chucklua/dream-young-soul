@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>编辑-菜单管理</title>
-#parse("include/header.html")
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/header_css::header('编辑-菜单管理')"></head>
 <body>
 	<div id="dpLTE" class="container-fluid" v-cloak>
 		<table class="form" id="form">
@@ -31,7 +28,7 @@
 					<input type="text" class="form-control pointer" v-model="menu.parentName" @click="menuTree" readonly="readonly" placeholder="一级菜单"/>
 				</td>
         	</tr>
-        	<tr v-if="menu.type == 1">
+        	<tr v-if="menu.type == 1 || menu.type == 2">
 	            <td class="formTitle">菜单URL</td>
 	            <td class="formValue">
 					<input type="text" class="form-control" v-model="menu.url" placeholder="菜单URL"/>
@@ -62,8 +59,7 @@
 	<div id="menuLayer" style="display: none;padding:10px;">
 		<ul id="menuTree" class="ztree"></ul>
 	</div>
-	#parse("include/footer.html")
-	<script
-		src="${rc.contextPath}/statics/js/base/menu/edit.js?_${date.systemTime}"></script>
+	<div th:include="include/footer_js::footer"></div>
+	<script th:src="@{/statics/js/base/menu/edit.js}"></script>
 </body>
 </html>

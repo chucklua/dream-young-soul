@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>定时任务</title>
-#parse("include/header.html")
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/header_css::header('定时任务')"></head>
 <body>
 <div id="dpLTE" class="container-fluid" v-cloak>
 	<div class="row">
@@ -36,7 +33,7 @@
 		<table id="dataGrid"></table>
 	</div>
 </div>
-#parse("include/footer.html")
-<script src="${rc.contextPath}/statics/js/base/quartz/list.js?_${date.systemTime}"></script>
+<div th:include="include/footer_js::footer"></div>
+<script th:src="@{/statics/js/base/quartz/list.js}"></script>
 </body>
 </html>

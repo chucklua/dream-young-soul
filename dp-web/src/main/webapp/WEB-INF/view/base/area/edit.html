@@ -1,9 +1,6 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>编辑-行政区域</title>
-#parse("include/header.html")
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/header_css :: header('编辑-行政区域')"></head>
 <body>
 	<div id="dpLTE" class="container-fluid" v-cloak>
 		<table class="form" id="form">
@@ -64,8 +61,7 @@
         	</tr>
 		</table>
 	</div>
-	#parse("include/footer.html")
-	<script
-		src="${rc.contextPath}/statics/js/base/area/edit.js?_${date.systemTime}"></script>
+	<div th:include="include/footer_js :: footer"></div>
+	<script th:src="@{/statics/js/base/area/edit.js}"></script>
 </body>
 </html>

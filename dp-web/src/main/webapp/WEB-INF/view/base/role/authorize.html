@@ -1,14 +1,11 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>分配权限-角色管理</title>
-#parse("include/header.html")
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/header_css::header('操作权限-角色管理')"></head>
 <body>
 	<div id="dpLTE" class="container-fluid" v-cloak>
 		<ul id="menuTree" class="ztree"></ul>
 	</div>
-	#parse("include/footer.html")
+	<div th:include="include/footer_js::footer"></div>
 	<script type="text/javascript">
 	var setting = {
 		data : {

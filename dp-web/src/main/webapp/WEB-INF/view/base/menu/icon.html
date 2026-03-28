@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html>
-<head>
-<title>选取图标-菜单管理</title> #parse("include/header.html")
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="include/header_css::header('选取图标-菜单管理')"></head>
 <style>
 body {
 	font-family: 'Microsoft Yahei', Helvetica, Arial, sans-serif;
@@ -4162,7 +4161,7 @@ body {
 					</div>
 				</section>
 			</div>
-			#parse("include/footer.html")
+			<div th:include="include/footer_js::footer"></div>
 			<script type="text/javascript">
 				$(function () {
 					$("#icons .fa-hover a").dblclick(function () {
