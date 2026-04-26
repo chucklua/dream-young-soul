@@ -41,7 +41,8 @@
 			macro_id,
 			type_id,
 			name,
-			value
+			value,
+			order_num
 		FROM
 			sys_macro
 		WHERE

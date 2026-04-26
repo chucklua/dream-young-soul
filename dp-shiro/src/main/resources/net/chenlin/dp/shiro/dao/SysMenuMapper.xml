@@ -41,7 +41,8 @@
 			menu_id,
 			parent_id,
 			name,
-			type
+			type,
+			order_num
 		FROM
 			sys_menu
 		WHERE
@@ -57,7 +58,8 @@
 			name,
 			url,
 			type,
-			icon
+			icon,
+			order_num
 		FROM
 			sys_menu
 		WHERE
@@ -146,8 +148,6 @@
 		LEFT JOIN sys_menu m ON rm.menu_id = m.menu_id
 		WHERE
 			ur.user_id = #{value}
-		ORDER BY
-			m.order_num ASC
 	</select>
 
 	<cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
