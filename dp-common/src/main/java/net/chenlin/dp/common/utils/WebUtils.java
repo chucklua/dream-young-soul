@@ -27,13 +27,14 @@ public class WebUtils {
 	 * @return
 	 */
 	public static boolean isAjax(HttpServletRequest request){
+		String header = "x-requested-with", httpRequest = "XMLHttpRequest";
 		//如果是ajax请求响应头会有，x-requested-with
-		 if (request.getHeader("x-requested-with") != null    
-				 && request.getHeader("x-requested-with")    
-				 .equalsIgnoreCase("XMLHttpRequest")) { 
-			 return true;
-		 }
-		 return false;
+		if (request.getHeader(header) != null
+				&& request.getHeader(header)
+				.equalsIgnoreCase(httpRequest)) {
+			return true;
+		}
+		return false;
 	}
 	
 	/**

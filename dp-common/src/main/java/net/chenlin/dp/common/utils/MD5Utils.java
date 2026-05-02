@@ -21,7 +21,7 @@ public class MD5Utils {
 
 	/**
 	 * 使用md5生成加密后的密码
-	 * @param user
+	 * @param pswd
 	 * @return
 	 */
 	public static String encrypt(String pswd) {
@@ -31,7 +31,8 @@ public class MD5Utils {
 	
 	/**
 	 * 使用md5生成加密后的密码
-	 * @param user
+	 * @param username
+	 * @param pswd
 	 * @return
 	 */
 	public static String encrypt(String username, String pswd) {

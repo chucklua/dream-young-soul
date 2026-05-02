@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class IpUtils {
 
-	private static Logger logger = LoggerFactory.getLogger(IpUtils.class);
+	private static Logger LOG = LoggerFactory.getLogger(IpUtils.class);
 
 	/**
 	 * 获取IP地址
@@ -45,7 +45,7 @@ public class IpUtils {
 				ip = request.getRemoteAddr();
 			}
 		} catch (Exception e) {
-			logger.error("IPUtils ERROR ", e);
+			LOG.error("IPUtils ERROR ", e);
 		}
 
 		// 使用代理，则获取第一个IP地址

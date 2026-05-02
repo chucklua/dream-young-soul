@@ -26,8 +26,9 @@ public class Query extends HashMap<String, Object> {
 	
 	public Double getAsDouble(String name) {
         Object value = this.get(name);
-        if (value != null)
+        if (value != null) {
             return Double.valueOf(value.toString());
+        }
         return null;
     }
 
@@ -37,29 +38,33 @@ public class Query extends HashMap<String, Object> {
 
     public Long getAsLong(String name) {
         Object value = this.get(name);
-        if (value != null)
+        if (value != null) {
             return Long.valueOf(value.toString());
+        }
         return null;
     }
 
     public Integer getAsInt(String name) {
         Object value = this.get(name);
-        if (value != null)
+        if (value != null) {
             return Integer.valueOf(value.toString());
+        }
         return null;
     }
 
     public Boolean getAsBoolean(String name) {
         Object value = this.get(name);
-        if (value != null)
+        if (value != null) {
             return Boolean.valueOf(value.toString());
+        }
         return null;
     }
 
     public java.util.Date getAsDate(String name) {
     	Object value = this.get(name);
-        if (value != null)
-        	return Date.valueOf(value.toString());
+        if (value != null) {
+            return Date.valueOf(value.toString());
+        }
         return null;
     }
 
