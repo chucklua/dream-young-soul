@@ -8,6 +8,9 @@
 - 项目文档（包含常见问题解答）：[http://dp-dev.mydoc.io/](http://dp-dev.mydoc.io/)
 - 最新进展详情及更多新特性，请关注 dp-PRO项目
 （dp-PRO支持动态数据源切换、分布式session、多tab页标签菜单、代码生成器【生成代码也适用于dp-LTE】、自定义日志） 
+### 项目拓展
+- [基于系统参数管理实现动态select控件](https://my.oschina.net/zhouchenglin/blog/1615653)
+- [基于ajaxfileupload.js实现文件上传](https://my.oschina.net/zhouchenglin/blog/1615214)
 
 ### 项目介绍
 - 一个轻量级的Java快速开发框架，能快速开发项目并交付（规划后期不定时发布更新）
