@@ -9,7 +9,7 @@ var vm = new Vue({
 			parentId:0,
 			type:1,
 			orderNum:0,
-			icon: null
+			icon: 'fa fa-circle-o'
 		}
 	},
 	methods : {
