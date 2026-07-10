@@ -8,9 +8,24 @@ $(function () {
 });
 
 function initialPage() {
+    vm.dateRangeSelect(1);
 	$(window).resize(function() {
 		$('#dataGrid').bootstrapTable('resetView', {height: $(window).height()-54});
 	});
+    //日期选择
+    laydate.render({
+        elem: '#dateRange',
+        range: true,
+        theme: '#3C8DBC',
+        eventElem: '#dateRange',
+        trigger: 'click',
+        done: function(value, date, endDate){
+            vm.dateRangeSelect(0);
+            vm.dateRange = value;
+            vm.startDate = date.year + '-' + date.month + '-' + date.date;
+            vm.endDate = endDate.year + '-' + endDate.month + '-' + endDate.date;
+        }
+    });
 }
 
 function getGrid() {
@@ -19,6 +34,8 @@ function getGrid() {
 		height: $(window).height()-54,
 		queryParams: function(params){
 			params.username = vm.keyword;
+            params.startDate = vm.startDate;
+            params.endDate = vm.endDate;
 			return params;
 		},
 		detailView: true,
@@ -60,12 +77,39 @@ function getGrid() {
 var vm = new Vue({
 	el:'#dpLTE',
 	data: {
-		keyword: null
+		keyword: null,
+        startDate : null,
+        endDate : null,
+        dateRangeText : '时间范围',
+        dateRange : null
 	},
 	methods : {
 		load: function() {
 			$('#dataGrid').bootstrapTable('refresh');
 		},
+        dateRangeSelect : function(count) {
+            if(count==1){
+                vm.dateRangeText = '最近一天';
+                vm.startDate = countDay(-1);
+                vm.endDate = today();
+                vm.dateRange = vm.startDate + ' - ' + vm.endDate;
+            }else if(count ==7){
+                vm.dateRangeText = '最近一周';
+                vm.startDate = countDay(-7);
+                vm.endDate = today();
+                vm.dateRange = vm.startDate + ' - ' + vm.endDate;
+            }else if(count ==30){
+                vm.dateRangeText = '最近一月';
+                vm.startDate = countDay(-30);
+                vm.endDate = today();
+                vm.dateRange = vm.startDate + ' - ' + vm.endDate;
+            }else{
+                vm.dateRangeText = '时间范围';
+                vm.startDate = '';
+                vm.endDate = '';
+                vm.dateRange = '';
+            }
+        },
 		remove: function() {
 			var ck = $('#dataGrid').bootstrapTable('getSelections'), ids = [];	
 			if(checkedArray(ck)){
