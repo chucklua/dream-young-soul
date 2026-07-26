@@ -10,7 +10,7 @@ $(function () {
 function initialPage() {
     vm.dateRangeSelect(1);
 	$(window).resize(function() {
-		$('#dataGrid').bootstrapTable('resetView', {height: $(window).height()-54});
+		$('#dataGrid').bootstrapTable('resetView', {height: $(window).height()-56});
 	});
     //日期选择
     laydate.render({
@@ -31,7 +31,7 @@ function initialPage() {
 function getGrid() {
 	$('#dataGrid').bootstrapTableEx({
 		url: '../../sys/log/list?_' + $.now(),
-		height: $(window).height()-54,
+		height: $(window).height()-56,
 		queryParams: function(params){
 			params.username = vm.keyword;
             params.startDate = vm.startDate;
