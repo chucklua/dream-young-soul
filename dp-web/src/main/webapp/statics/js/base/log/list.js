@@ -22,8 +22,8 @@ function initialPage() {
         done: function(value, date, endDate){
             vm.dateRangeSelect(0);
             vm.dateRange = value;
-            vm.startDate = date.year + '-' + date.month + '-' + date.date;
-            vm.endDate = endDate.year + '-' + endDate.month + '-' + endDate.date;
+            vm.startDate = formatDate(date.year + '-' + date.month + '-' + date.date, 'yyyy-MM-dd');
+            vm.endDate = formatDate(endDate.year + '-' + endDate.month + '-' + endDate.date, 'yyyy-MM-dd');
         }
     });
 }
