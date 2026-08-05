@@ -44,17 +44,18 @@ public class SysLogAspect {
 
 	@Around("logPointCut()")
 	public Object around(ProceedingJoinPoint point) throws Throwable {
+		SysUserEntity currUser = ShiroUtils.getUserEntity();
 		long beginTime = System.currentTimeMillis();
 		//执行方法
 		Object result = point.proceed();
 		//执行时长(毫秒)
 		long time = System.currentTimeMillis() - beginTime;
 		//保存日志
-		saveSysLog(point, time);
+		saveSysLog(point, time, currUser);
 		return result;
 	}
 
-	private void saveSysLog(ProceedingJoinPoint joinPoint, long time) {
+	private void saveSysLog(ProceedingJoinPoint joinPoint, long time, SysUserEntity userEntity) {
 		MethodSignature signature = (MethodSignature) joinPoint.getSignature();
 		Method method = signature.getMethod();
 		SysLogEntity sysLog = new SysLogEntity();
@@ -82,16 +83,13 @@ public class SysLogAspect {
 		//用户名
 		SysUserEntity currUser = ShiroUtils.getUserEntity();
 		if(CommonUtils.isNullOrEmpty(currUser)) {
-			if(CommonUtils.isNullOrEmpty(sysLog.getParams())) {
-				sysLog.setUserId(-1L);
-				sysLog.setUsername(sysLog.getParams());
-			} else {
-				sysLog.setUserId(-1L);
-				sysLog.setUsername("获取用户信息为空");
-			}
+			// 方法执行后，当前用户为空，使用方法执行前获取用户，登出操作
+			sysLog.setUserId(userEntity.getUserId());
+			sysLog.setUsername(userEntity.getUsername());
 		} else {
-			sysLog.setUserId(ShiroUtils.getUserId());
-			sysLog.setUsername(ShiroUtils.getUserEntity().getUsername());
+			// 方法执行后，当前用户不为空，使用方法执行后用户，登录操作
+			sysLog.setUserId(currUser.getUserId());
+			sysLog.setUsername(currUser.getUsername());
 		}
 		sysLog.setTime(time);
 		//保存系统日志
