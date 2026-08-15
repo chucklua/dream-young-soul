@@ -32,14 +32,23 @@
 			role : {}
 		},
 		methods : {
-			getMenu : function(menuId) {
-				$.get('../../sys/menu/list?_' + $.now(), function(r) {
-					ztree = $.fn.zTree
-							.init($("#menuTree"), setting, r);
-					ztree.expandAll(true);
-				})
-			},
+            getMenu : function(menuId) {
+                $.ajax({
+                    type: 'get',
+                    async: false,
+                    contentType : 'application/json',
+                    url: '../../sys/menu/list?_' + $.now(),
+                    data: null,
+                    success: function(r) {
+                        ztree = $.fn.zTree
+                            .init($("#menuTree"), setting, r);
+                        ztree.expandAll(true);
+                    },
+                    dataType: 'json'
+                });
+            },
 			setForm: function() {
+                this.getMenu();
 				$.SetForm({
 					url: '../../sys/role/info',
 			    	param: vm.role.roleId,
@@ -68,9 +77,6 @@
 			    	}
 			    });
 			}
-		},
-		created : function() {
-			this.getMenu();
 		}
 	})
 	</script>
