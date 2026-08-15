@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:include="include/header_css::header('新增-用户管理')"></head>
+<head th:include="include/header_css::header('新增-用户管理')">
+	.bootstrap-duallistbox-container {
+		margin-top: -32px;
+		margin-left: -12px;
+	}
+</head>
 <body>
 	<div id="dpLTE" class="container-fluid" v-cloak>
 		<table class="form" id="form">
@@ -24,14 +29,12 @@
 					<input type="text" class="form-control" placeholder="手机号" v-model="user.mobile">
 	            </td>
         	</tr>
-        	<tr>
-        		<td class="formTitle">角色</td>
-	            <td class="formValue" colspan="3">
-					<label v-for="role in roleList" class="checkbox-inline">
-					  <input type="checkbox" :value="role.roleId" v-model="user.roleIdList">{{role.roleName}}
-					</label>
-	            </td>
-        	</tr>
+			<tr>
+				<td class="formTitle">角色</td>
+				<td class="formValue" colspan="3">
+					<select multiple="multiple" size="10" name="doublebox" class="rolebox"></select>
+				</td>
+			</tr>
 			<tr>
 				<td class="formTitle">状态</td>
 				<td class="formValue" colspan="3">
