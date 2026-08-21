@@ -35,15 +35,22 @@ var vm = new Vue({
 		    	param: vm.user.userId,
 		    	success: function(data) {
 		    		vm.user = data;
-		    		for(var i=0; i<vm.user.roleIdList.length; i++){
-                        for(var j=0; j<vm.roleList.length; j++){
-                        	if(vm.user.roleIdList[i] == vm.roleList[j].roleId){
-                        		vm.selectedList.push(vm.roleList[j]);
-							}else{
-                                vm.nonselectedList.push(vm.roleList[j]);
-							}
+                    for(var i=0; i<vm.roleList.length; i++){
+                        var exist = true;
+                        inner:
+                        for(var j=0; j<vm.user.roleIdList.length; j++){
+                            if(vm.roleList[i].roleId == vm.user.roleIdList[j]){
+                                vm.selectedList.push(vm.roleList[j]);
+                                exist = true;
+                                break inner;
+                            }else{
+                                exist = false;
+                            }
                         }
-					}
+                        if (!exist){
+                            vm.nonselectedList.push(vm.roleList[j]);
+                        }
+                    }
                     doublebox = $('.rolebox').doublebox({
                         selectorMinimalHeight: 187,
                         filterPlaceHolder: '关键字...',
