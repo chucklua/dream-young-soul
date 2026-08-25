@@ -40,7 +40,7 @@ var vm = new Vue({
                         inner:
                         for(var j=0; j<vm.user.roleIdList.length; j++){
                             if(vm.roleList[i].roleId == vm.user.roleIdList[j]){
-                                vm.selectedList.push(vm.roleList[j]);
+                                vm.selectedList.push(vm.roleList[i]);
                                 exist = true;
                                 break inner;
                             }else{
@@ -48,7 +48,7 @@ var vm = new Vue({
                             }
                         }
                         if (!exist){
-                            vm.nonselectedList.push(vm.roleList[j]);
+                            vm.nonselectedList.push(vm.roleList[i]);
                         }
                     }
                     doublebox = $('.rolebox').doublebox({
