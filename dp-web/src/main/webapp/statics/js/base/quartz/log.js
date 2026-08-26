@@ -10,7 +10,7 @@ $(function() {
 function initialPage() {
 	$(window).resize(function() {
 		$('#dataGrid').bootstrapTable('resetView', {
-			height : $(window).height() - 54
+			height : $(window).height() - 56
 		});
 	});
 }
@@ -18,7 +18,7 @@ function initialPage() {
 function getGrid() {
 	$('#dataGrid').bootstrapTableEx({
 		url : '../../quartz/job/log/list?_' + $.now(),
-		height : $(window).height() - 54,
+		height : $(window).height() - 56,
 		queryParams : function(params) {
 			params.name = vm.keyword;
 			return params;
