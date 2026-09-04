@@ -71,6 +71,11 @@ $.fn.bootstrapTableEx = function(opt){
 		columns: []
 	}
 	var option = $.extend({}, defaults, opt);
+	if(!option.pagination){
+        option.responseHandler = function(res) {
+            return res.rows;
+        }
+	}
 	$(this).bootstrapTable(option);
 }
 
