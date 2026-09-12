@@ -36,7 +36,7 @@
 			m.order_num ASC
 	</select>
 	
-	<select id="listNotButton" resultType="SysMenuEntity">
+	<select id="listNotButton" resultType="SysMenuEntity" useCache="false">
 		SELECT
 			menu_id,
 			parent_id,
