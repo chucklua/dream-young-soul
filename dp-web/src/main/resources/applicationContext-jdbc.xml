@@ -56,7 +56,7 @@
 	<bean id="sqlSessionFactory"
 		  class="net.chenlin.dp.orm.mybatis.PackagesSqlSessionFactoryBean"
 		  p:dataSource-ref="dataSource" p:typeAliasesPackage="net.chenlin.dp.**.entity"
-		  p:configLocation="classpath:mybatis-config.xml" p:mapperLocations="classpath:net/chenlin/dp/common/dao/SysLogMapper.xml" />
+		  p:configLocation="classpath:mybatis-config.xml" p:mapperLocations="classpath:net/chenlin/dp/*/dao/*Mapper.xml" />
 
 	<!-- spring与mybatis整合配置，扫描所有dao -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
