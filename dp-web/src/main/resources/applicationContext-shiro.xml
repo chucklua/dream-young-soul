@@ -35,6 +35,8 @@
 				/login.html=anon
 				/sys/login=anon
 				/sys/captcha.jpg=anon
+				/webjars/**=anon
+				/swagger-ui.html=anon
 				/**=authc
 			</value>
 		</property>

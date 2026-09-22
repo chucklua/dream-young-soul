@@ -3560,58 +3560,7 @@ CREATE TABLE `sys_log` (
   `ip` varchar(64) DEFAULT NULL COMMENT 'IP地址',
   `gmt_create` datetime DEFAULT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8 COMMENT='系统日志';
-
--- ----------------------------
--- Records of sys_log
--- ----------------------------
-INSERT INTO `sys_log` VALUES ('1', '1', 'admin', '登录', '232', 'net.chenlin.dp.shiro.controller.SysLoginController.login()', '\"admin\"', '0:0:0:0:0:0:0:1', '2017-08-21 17:08:39');
-INSERT INTO `sys_log` VALUES ('2', '1', 'admin', '登录', '107', 'net.chenlin.dp.shiro.controller.SysLoginController.login()', '\"admin\"', '0:0:0:0:0:0:0:1', '2017-08-21 17:16:27');
-INSERT INTO `sys_log` VALUES ('3', '1', 'admin', '新增菜单', '8', 'net.chenlin.dp.shiro.controller.SysMenuController.save()', '{\"name\":\"行政区域\",\"orderNum\":0,\"parentId\":1,\"parentName\":\"基础管理\",\"type\":1,\"url\":\"base/area/list.html\"}', '0:0:0:0:0:0:0:1', '2017-08-21 17:21:18');
-INSERT INTO `sys_log` VALUES ('4', '1', 'admin', '修改菜单', '146', 'net.chenlin.dp.shiro.controller.SysMenuController.update()', '{\"icon\":\"fa fa-leaf\",\"menuId\":37,\"name\":\"行政区域\",\"orderNum\":0,\"parentId\":1,\"parentName\":\"基础管理\",\"type\":1,\"url\":\"base/area/list.html\"}', '0:0:0:0:0:0:0:1', '2017-08-21 17:21:41');
-INSERT INTO `sys_log` VALUES ('5', '1', 'admin', '分配权限', '10', 'net.chenlin.dp.shiro.controller.SysRoleController.updateRoleAuthorization()', '{\"menuIdList\":[1,37,4,32,33,34,35,27,28,29,30,3,6,11,12,13,14,24,25,26,7,15,16,17,18,19,2,20,21,22,23],\"remark\":\"【系统内置】\",\"roleId\":1,\"roleName\":\"超级管理员\",\"roleSign\":\"admin\"}', '0:0:0:0:0:0:0:1', '2017-08-21 17:21:53');
-INSERT INTO `sys_log` VALUES ('6', '1', 'admin', '分配权限', '18', 'net.chenlin.dp.shiro.controller.SysRoleController.updateRoleAuthorization()', '{\"menuIdList\":[1,37,38,39,40,41,4,32,33,34,35,27,28,29,30,3,6,11,12,13,14,24,25,26,7,15,16,17,18,19,2,20,21,22,23],\"remark\":\"【系统内置】\",\"roleId\":1,\"roleName\":\"超级管理员\",\"roleSign\":\"admin\"}', '0:0:0:0:0:0:0:1', '2017-08-21 17:25:03');
-INSERT INTO `sys_log` VALUES ('7', '-1', null, '退出系统', '5', 'net.chenlin.dp.shiro.controller.SysLoginController.logout()', null, '0:0:0:0:0:0:0:1', '2017-08-21 17:28:30');
-INSERT INTO `sys_log` VALUES ('8', '1', 'admin', '登录', '252', 'net.chenlin.dp.shiro.controller.SysLoginController.login()', '\"admin\"', '0:0:0:0:0:0:0:1', '2017-08-21 20:52:06');
-INSERT INTO `sys_log` VALUES ('9', '1', 'admin', '登录', '111', 'net.chenlin.dp.shiro.controller.SysLoginController.login()', '\"admin\"', '0:0:0:0:0:0:0:1', '2017-08-21 22:15:32');
-INSERT INTO `sys_log` VALUES ('10', '1', 'admin', '登录', '113', 'net.chenlin.dp.shiro.controller.SysLoginController.login()', '\"admin\"', '0:0:0:0:0:0:0:1', '2017-08-21 22:18:09');
-INSERT INTO `sys_log` VALUES ('11', '1', 'admin', '登录', '380', 'net.chenlin.dp.shiro.controller.SysLoginController.login()', '\"admin\"', '0:0:0:0:0:0:0:1', '2017-08-28 09:15:28');
-INSERT INTO `sys_log` VALUES ('12', '1', 'admin', '登录', '5', 'net.chenlin.dp.shiro.controller.SysLoginController.login()', '\"admin\"', '0:0:0:0:0:0:0:1', '2017-08-28 09:20:05');
-INSERT INTO `sys_log` VALUES ('13', '-1', null, '退出系统', '17', 'net.chenlin.dp.shiro.controller.SysLoginController.logout()', null, '0:0:0:0:0:0:0:1', '2017-08-28 09:21:17');
-INSERT INTO `sys_log` VALUES ('14', '1', 'admin', '登录', '136', 'net.chenlin.dp.shiro.controller.SysLoginController.login()', '\"admin\"', '0:0:0:0:0:0:0:1', '2017-08-28 09:38:42');
-INSERT INTO `sys_log` VALUES ('15', '-1', null, '退出系统', '25', 'net.chenlin.dp.shiro.controller.SysLoginController.logout()', null, '0:0:0:0:0:0:0:1', '2017-08-28 09:39:08');
-INSERT INTO `sys_log` VALUES ('16', '1', 'admin', '登录', '127', 'net.chenlin.dp.shiro.controller.SysLoginController.login()', '\"admin\"', '0:0:0:0:0:0:0:1', '2017-08-28 10:57:37');
-INSERT INTO `sys_log` VALUES ('17', '1', 'admin', '删除区域', '12', 'net.chenlin.dp.base.controller.SysAreaController.remove()', '[37]', '0:0:0:0:0:0:0:1', '2017-08-28 10:57:42');
-INSERT INTO `sys_log` VALUES ('18', '1', 'admin', '登录', '126', 'net.chenlin.dp.shiro.controller.SysLoginController.login()', '\"admin\"', '0:0:0:0:0:0:0:1', '2017-08-28 10:59:36');
-INSERT INTO `sys_log` VALUES ('19', '1', 'admin', '删除区域', '11', 'net.chenlin.dp.base.controller.SysAreaController.remove()', '[19]', '0:0:0:0:0:0:0:1', '2017-08-28 10:59:42');
-INSERT INTO `sys_log` VALUES ('20', '1', 'admin', '删除字典', '12', 'net.chenlin.dp.base.controller.SysMacroController.batchRemove()', '[1]', '0:0:0:0:0:0:0:1', '2017-08-28 10:59:47');
-INSERT INTO `sys_log` VALUES ('21', '1', 'admin', '删除菜单', '8', 'net.chenlin.dp.shiro.controller.SysMenuController.remove()', '[1]', '0:0:0:0:0:0:0:1', '2017-08-28 10:59:56');
-INSERT INTO `sys_log` VALUES ('22', '1', 'admin', '删除区域', '16', 'net.chenlin.dp.base.controller.SysAreaController.remove()', '[497]', '0:0:0:0:0:0:0:1', '2017-08-28 11:00:08');
-INSERT INTO `sys_log` VALUES ('23', '1', 'admin', '删除字典', '7', 'net.chenlin.dp.base.controller.SysMacroController.batchRemove()', '[1]', '0:0:0:0:0:0:0:1', '2017-08-28 11:00:15');
-INSERT INTO `sys_log` VALUES ('24', '-1', null, '退出系统', '2', 'net.chenlin.dp.shiro.controller.SysLoginController.logout()', null, '0:0:0:0:0:0:0:1', '2017-08-28 11:00:27');
-INSERT INTO `sys_log` VALUES ('25', '1', 'admin', '登录', '134', 'net.chenlin.dp.shiro.controller.SysLoginController.login()', '\"admin\"', '0:0:0:0:0:0:0:1', '2017-08-28 11:07:10');
-INSERT INTO `sys_log` VALUES ('26', '1', 'admin', '删除区域', '11', 'net.chenlin.dp.base.controller.SysAreaController.remove()', '[19]', '0:0:0:0:0:0:0:1', '2017-08-28 11:07:15');
-INSERT INTO `sys_log` VALUES ('27', '1', 'admin', '登录', '7', 'net.chenlin.dp.shiro.controller.SysLoginController.login()', '\"admin\"', '0:0:0:0:0:0:0:1', '2017-08-28 11:11:00');
-INSERT INTO `sys_log` VALUES ('28', '1', 'admin', '删除菜单', '9', 'net.chenlin.dp.shiro.controller.SysMenuController.remove()', '[3]', '0:0:0:0:0:0:0:1', '2017-08-28 11:11:59');
-INSERT INTO `sys_log` VALUES ('29', '1', 'admin', '删除区域', '13', 'net.chenlin.dp.base.controller.SysAreaController.remove()', '[1]', '0:0:0:0:0:0:0:1', '2017-08-28 11:12:05');
-INSERT INTO `sys_log` VALUES ('30', '1', 'admin', '删除字典', '6', 'net.chenlin.dp.base.controller.SysMacroController.batchRemove()', '[5]', '0:0:0:0:0:0:0:1', '2017-08-28 11:12:11');
-INSERT INTO `sys_log` VALUES ('31', '1', 'admin', '登录', '128', 'net.chenlin.dp.shiro.controller.SysLoginController.login()', '\"admin\"', '0:0:0:0:0:0:0:1', '2017-08-28 15:02:18');
-INSERT INTO `sys_log` VALUES ('32', '1', 'admin', '分配权限', '16', 'net.chenlin.dp.shiro.controller.SysRoleController.updateRoleAuthorization()', '{\"menuIdList\":[1,37,38,39,40,41,4,32,33,34,35,27,28,29,30,42,43,44,45,46,47,48,49,50,51,52,53,3,6,11,12,13,14,24,25,26,7,15,16,17,18,19,2,20,21,22,23],\"remark\":\"【系统内置】\",\"roleId\":1,\"roleName\":\"超级管理员\",\"roleSign\":\"admin\"}', '0:0:0:0:0:0:0:1', '2017-08-28 15:02:35');
-INSERT INTO `sys_log` VALUES ('33', '1', 'admin', '登录', '5', 'net.chenlin.dp.shiro.controller.SysLoginController.login()', '\"admin\"', '0:0:0:0:0:0:0:1', '2017-08-28 15:03:25');
-INSERT INTO `sys_log` VALUES ('34', '1', 'admin', '登录', '29', 'net.chenlin.dp.shiro.controller.SysLoginController.login()', '\"admin\"', '0:0:0:0:0:0:0:1', '2017-08-28 15:05:08');
-INSERT INTO `sys_log` VALUES ('35', '1', 'admin', '修改定时任务', '30', 'net.chenlin.dp.quartz.controller.QuartzJobController.update()', '{\"beanName\":\"testTask\",\"cronExpression\":\"0/3 * * * * ?\",\"gmtCreate\":1503280112000,\"jobId\":1,\"methodName\":\"test\",\"remark\":\"测试任务\",\"status\":0}', '0:0:0:0:0:0:0:1', '2017-08-28 15:05:50');
-INSERT INTO `sys_log` VALUES ('36', '1', 'admin', '启用定时任务', '126', 'net.chenlin.dp.quartz.controller.QuartzJobController.resume()', '[1]', '0:0:0:0:0:0:0:1', '2017-08-28 15:05:54');
-INSERT INTO `sys_log` VALUES ('37', '1', 'admin', '暂停定时运行', '30', 'net.chenlin.dp.quartz.controller.QuartzJobController.pause()', '[1]', '0:0:0:0:0:0:0:1', '2017-08-28 15:06:03');
-INSERT INTO `sys_log` VALUES ('38', '1', 'admin', '立即运行定时任务', '19', 'net.chenlin.dp.quartz.controller.QuartzJobController.run()', '[1]', '0:0:0:0:0:0:0:1', '2017-08-28 15:06:12');
-INSERT INTO `sys_log` VALUES ('39', '1', 'admin', '删除菜单', '8', 'net.chenlin.dp.shiro.controller.SysMenuController.remove()', '[27]', '0:0:0:0:0:0:0:1', '2017-08-28 15:06:52');
-INSERT INTO `sys_log` VALUES ('40', '1', 'admin', '删除区域', '12', 'net.chenlin.dp.base.controller.SysAreaController.remove()', '[1]', '0:0:0:0:0:0:0:1', '2017-08-28 15:06:59');
-INSERT INTO `sys_log` VALUES ('41', '1', 'admin', '新增定时任务', '37', 'net.chenlin.dp.quartz.controller.QuartzJobController.save()', '{\"beanName\":\"testTask\",\"cronExpression\":\"0/3 * * * * ?\",\"jobId\":2,\"methodName\":\"test\",\"status\":1}', '0:0:0:0:0:0:0:1', '2017-08-28 15:09:09');
-INSERT INTO `sys_log` VALUES ('42', '1', 'admin', '删除定时任务', '99', 'net.chenlin.dp.quartz.controller.QuartzJobController.remove()', '[2]', '0:0:0:0:0:0:0:1', '2017-08-28 15:09:25');
-INSERT INTO `sys_log` VALUES ('43', '1', 'admin', '修改定时任务', '43', 'net.chenlin.dp.quartz.controller.QuartzJobController.update()', '{\"beanName\":\"testTask\",\"cronExpression\":\"0 0 3 * * ?\",\"gmtCreate\":1503280112000,\"jobId\":1,\"methodName\":\"test\",\"remark\":\"测试任务\",\"status\":0}', '0:0:0:0:0:0:0:1', '2017-08-28 15:10:21');
-INSERT INTO `sys_log` VALUES ('44', '1', 'admin', '清空定时任务日志', '10', 'net.chenlin.dp.quartz.controller.QuartzJobLogController.batchRemoveAll()', null, '0:0:0:0:0:0:0:1', '2017-08-28 15:10:29');
-INSERT INTO `sys_log` VALUES ('45', '1', 'admin', '登录', '29', 'net.chenlin.dp.shiro.controller.SysLoginController.login()', '\"admin\"', '0:0:0:0:0:0:0:1', '2017-08-28 15:50:09');
-INSERT INTO `sys_log` VALUES ('46', '1', 'admin', '立即运行定时任务', '20', 'net.chenlin.dp.quartz.controller.QuartzJobController.run()', '[1]', '0:0:0:0:0:0:0:1', '2017-08-28 15:50:27');
-INSERT INTO `sys_log` VALUES ('47', '-1', null, '退出系统', '5', 'net.chenlin.dp.shiro.controller.SysLoginController.logout()', null, '0:0:0:0:0:0:0:1', '2017-08-28 15:50:39');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='系统日志';
 
 -- ----------------------------
 -- Table structure for sys_macro
@@ -3629,14 +3578,4 @@ CREATE TABLE `sys_macro` (
   `gmt_create` datetime DEFAULT NULL COMMENT '创建时间',
   `gmt_modified` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`macro_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='通用字典表';
-
--- ----------------------------
--- Records of sys_macro
--- ----------------------------
-INSERT INTO `sys_macro` VALUES ('1', '0', '系统参数', null, '1', '0', '0', null, '2017-08-15 14:51:27', null);
-INSERT INTO `sys_macro` VALUES ('2', '1', '用户状态', 'userStatus', '1', '0', '0', null, '2017-08-15 14:51:30', null);
-INSERT INTO `sys_macro` VALUES ('3', '2', '正常', '1', '0', '1', '0', '用户可登录', '2017-08-15 14:52:48', '2017-08-15 20:23:29');
-INSERT INTO `sys_macro` VALUES ('4', '2', '禁用', '0', '1', '1', '0', '禁止用户登录', '2017-08-15 14:52:51', '2017-08-15 20:44:42');
-INSERT INTO `sys_macro` VALUES ('5', '0', '客户关系', ' clientManage', '1', '0', '1', null, '2017-08-15 19:58:24', null);
-INSERT INTO `sys_macro` VALUES ('6', '5', '产品信息', 'clientProduct', '1', '0', '0', null, '2017-08-15 19:59:06', null);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='通用字典表';
