@@ -2,6 +2,11 @@ package net.chenlin.dp.shiro.controller;
 
 import java.util.Map;
 
+import com.baidu.unbiz.fluentvalidator.ComplexResult;
+import com.baidu.unbiz.fluentvalidator.FluentValidator;
+import com.baidu.unbiz.fluentvalidator.ResultCollectors;
+import net.chenlin.dp.common.validator.LengthValidator;
+import net.chenlin.dp.common.validator.NotNullValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -68,6 +73,14 @@ public class SysUserController extends AbstractController {
 	@SysLog("新增用户")
 	@RequestMapping("/save")
 	public R save(@RequestBody SysUserEntity user) {
+		ComplexResult result = FluentValidator.checkAll()
+				.on(user.getUsername(), new NotNullValidator("用户名"))
+				.on(user.getPassword(), new LengthValidator(1,5,"密码"))
+				.doValidate()
+				.result(ResultCollectors.toComplex());
+		if (!result.isSuccess()) {
+			return R.error(result.getErrors());
+		}
 		user.setUserIdCreate(getUserId());
 		return sysUserService.saveUser(user);
 	}

@@ -1,6 +1,9 @@
 package net.chenlin.dp.common.entity;
 
+import com.baidu.unbiz.fluentvalidator.ValidationError;
+
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -25,6 +28,10 @@ public class R extends HashMap<String, Object> {
 	
 	public static R error(String msg) {
 		return error(500, msg);
+	}
+
+	public static R error(List<ValidationError> errors) {
+		return error(errors.get(0).getErrorMsg()).put("data",errors);
 	}
 	
 	public static R error(int code, String msg) {

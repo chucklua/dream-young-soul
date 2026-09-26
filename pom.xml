@@ -128,6 +128,11 @@
             <version>${hibernate-validator-version}</version>
         </dependency>
         <dependency>
+            <groupId>com.baidu.unbiz</groupId>
+            <artifactId>fluent-validator</artifactId>
+            <version>1.0.6</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
             <version>${springframework-version}</version>
