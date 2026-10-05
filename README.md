@@ -34,6 +34,8 @@
 - 弹窗组件：layer
 - 日期组件：laydate
 - 表单校验：validator
+- 后端校验：fluent-validator
+- 接口管理：swagger-ui
 ### 项目结构
 - dp-security：父级（聚合）模块
 - dp-common：公共通用模块
