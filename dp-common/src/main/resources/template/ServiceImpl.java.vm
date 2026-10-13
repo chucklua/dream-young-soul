@@ -15,11 +15,7 @@ import ${package}.${module}.service.${className}Service;
 
 /**
  * ${comments}
- *
- * @author ${author}
- * @email ${email}
- * @url ${url}
- * @date ${datetime}
+ * @author ${author}<${email}>
  */
 @Service("${objName}Service")
 public class ${className}ServiceImpl implements ${className}Service {
@@ -27,6 +23,11 @@ public class ${className}ServiceImpl implements ${className}Service {
 	@Autowired
 	private ${className}Manager ${objName}Manager;
 
+    /**
+     * 分页查询
+     * @param params
+     * @return
+     */
 	@Override
 	public Page<${className}Entity> list${className}(Map<String, Object> params) {
 		Query query = new Query(params);
@@ -35,24 +36,44 @@ public class ${className}ServiceImpl implements ${className}Service {
 		return page;
 	}
 
+    /**
+     * 新增
+     * @param ${objName}
+     * @return
+     */
 	@Override
-	public R save${className}(${className}Entity role) {
-		int count = ${objName}Manager.save${className}(role);
+	public R save${className}(${className}Entity ${objName}) {
+		int count = ${objName}Manager.save${className}(${objName});
 		return CommonUtils.msg(count);
 	}
 
+    /**
+     * 根据id查询
+     * @param id
+     * @return
+     */
 	@Override
 	public R get${className}ById(Long id) {
 		${className}Entity ${objName} = ${objName}Manager.get${className}ById(id);
 		return CommonUtils.msg(${objName});
 	}
 
+    /**
+     * 修改
+     * @param ${objName}
+     * @return
+     */
 	@Override
 	public R update${className}(${className}Entity ${objName}) {
 		int count = ${objName}Manager.update${className}(${objName});
 		return CommonUtils.msg(count);
 	}
 
+    /**
+     * 删除
+     * @param id
+     * @return
+     */
 	@Override
 	public R batchRemove(Long[] id) {
 		int count = ${objName}Manager.batchRemove(id);

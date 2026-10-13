@@ -52,6 +52,29 @@ public class TableEntity implements Serializable {
 	 */
 	private Timestamp createTime;
 
+	/**
+	 * 是否含有decimal类型数据
+	 */
+	private Boolean hasDecimal;
+
+	public TableEntity buildHasDecimal() {
+		for (ColumnEntity columnEntity : columns) {
+			if ("decimal".equals(columnEntity.getDataType().toLowerCase())) {
+				this.hasDecimal = true;
+				return this;
+			}
+		}
+		return this;
+	}
+
+	public Boolean getHasDecimal() {
+		return hasDecimal;
+	}
+
+	public void setHasDecimal(Boolean hasDecimal) {
+		this.hasDecimal = hasDecimal;
+	}
+
 	public TableEntity() {
 		super();
 	}

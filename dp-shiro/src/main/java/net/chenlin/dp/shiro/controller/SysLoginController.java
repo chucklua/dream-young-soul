@@ -6,8 +6,12 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import net.chenlin.dp.common.utils.CaptchaUtil;
+import org.apache.commons.lang.math.NumberUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.LockedAccountException;
@@ -42,6 +46,44 @@ public class SysLoginController {
 	
 	@Autowired
 	private Producer producer;
+
+	/**
+	 * 验证码
+	 * @param request
+	 * @param response
+	 * @param session
+	 * @throws IOException
+	 */
+	@RequestMapping("/code.jpg")
+	public void checkCode(HttpServletRequest request, HttpServletResponse response, HttpSession session) throws IOException {
+		int width = NumberUtils.toInt(request.getParameter("width"), 100);
+		int height = NumberUtils.toInt(request.getParameter("height"), 30);
+		int codeCount = NumberUtils.toInt(request.getParameter("codeCount"), 4);
+		int lineCount = NumberUtils.toInt(request.getParameter("lineCount"), 10);
+		if (width > 1000) {
+			width = 100;
+		}
+		if (height > 300) {
+			height = 30;
+		}
+		if (codeCount > 10) {
+			codeCount = 4;
+		}
+		if (lineCount > 100) {
+			lineCount = 10;
+		}
+		// 设置响应的类型格式为图片格式
+		response.setContentType("image/jpeg");
+		// 禁止图像缓存。
+		response.setHeader("Pragma", "no-cache");
+		response.setHeader("Cache-Control", "no-cache");
+		response.setDateHeader("Expires", 0);
+		// 自定义参数
+		CaptchaUtil code = new CaptchaUtil(width, height, codeCount, lineCount);
+		String sessionId = session.getId();
+//		RedisUtil.set("captcha_" + sessionId, code.getCode(), 60 * 30);
+		code.write(response.getOutputStream());
+	}
 	
 	/**
 	 * 验证码

@@ -16,11 +16,7 @@ import ${package}.${module}.service.${className}Service;
 
 /**
  * ${comments}
- *
- * @author ${author}
- * @email ${email}
- * @url ${url}
- * @date ${datetime}
+ * @author ${author}<${email}>
  */
 @RestController
 @RequestMapping("/${requestMapping}")
