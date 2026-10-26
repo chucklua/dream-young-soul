@@ -15,6 +15,3 @@ target/
 # gitbook
 _book
 tmp
-
-# gitignore
-.gitignore
