@@ -328,6 +328,14 @@ dialogLoading = function(flag) {
 	}
 }
 
+dialogToastr = function(msg) {
+	top.layer.msg(msg);
+}
+
+dialogTip = function(msg, dom) {
+	top.layer.tips(msg, dom);
+}
+
 $.fn.GetWebControls = function (keyValue) {
     var reVal = "";
     $(this).find('input,select,textarea').each(function (r) {

@@ -75,11 +75,11 @@ var vm = new Vue({
 				btn : [ '确定', '取消' ],
 				yes : function(index) {
 					if(isNullOrEmpty(vm.pswd)) {
-						dialogMsg('原密码为空！');
+						dialogTip('原密码为空！', '#oldPswd');
 						return false;
 					}
 					if(isNullOrEmpty(vm.newPswd)) {
-						dialogMsg('新密码为空！');
+						dialogTip('新密码为空！', '#newPswd');
 						return false;
 					}
 					var data = "pswd=" + vm.pswd + "&newPswd="
