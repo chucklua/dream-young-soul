@@ -53,30 +53,57 @@ toUrl = function(href) {
 	window.location.href = href;
 }
 
+// 分页表格
 $.fn.bootstrapTableEx = function(opt){
-	var defaults = {
-		url: '',
-		dataField: "rows",
-		method: 'post',
-		dataType: 'json',
-		selectItemName: 'id',
-		clickToSelect: true,
-		pagination: true,
-		smartDisplay: false,
-		pageSize: 10,
-		pageList: [10, 20, 30, 40, 50],
+    var defaults = {
+        url: '',
+        dataField: "rows",
+        striped: true,
+        method: 'post',
+        dataType: 'json',
+        selectItemName: 'id',
+        clickToSelect: true,
+        pagination: true,
+        smartDisplay: false,
+        pageSize: 10,
+        pageList: [10, 20, 30, 40, 50],
         paginationLoop: false,
-		sidePagination: 'server',
-		queryParamsType : null,
-		columns: []
-	}
-	var option = $.extend({}, defaults, opt);
-	if(!option.pagination){
+        sidePagination: 'server',
+        queryParamsType : null,
+        columns: []
+    }
+    var option = $.extend({}, defaults, opt);
+    if(!option.pagination){
         option.responseHandler = function(res) {
             return res.rows;
         }
-	}
-	$(this).bootstrapTable(option);
+    }
+    $(this).bootstrapTable(option);
+}
+
+// 树形表格
+$.fn.bootstrapTreeTableEx = function(opt) {
+    var $table = $(this);
+    var defaults = {
+        url: '',
+        striped: true,
+        sidePagination: 'server',
+        clickToSelect: true,
+        idField: '',
+        columns: [],
+        treeShowField: '',
+        parentIdField: '',
+        onLoadSuccess: function(data) {
+            $table.treegrid({
+                treeColumn: 1,
+                onChange: function() {
+                    $table.bootstrapTable('resetWidth');
+                }
+            });
+        }
+    }
+    var option = $.extend({}, defaults, opt);
+    $(this).bootstrapTable(option);
 }
 
 formatDate = function (v, format) {
@@ -115,7 +142,11 @@ function today() {
 
 function countDay(dayCount) {
     var dd = new Date();
-    dd.setDate(dd.getDate()+dayCount);//获取AddDayCount天后的日期
+    if (dayCount < 0) {
+        dd.setDate(dd.getDate()+dayCount+1);//获取AddDayCount天前的日期
+    } else {
+        dd.setDate(dd.getDate()+dayCount-1);//获取AddDayCount天后的日期
+    }
     var y = dd.getFullYear();
     var m = (dd.getMonth()+1)<10?"0"+(dd.getMonth()+1):(dd.getMonth()+1);//获取当前月份的日期，不足10补0
     var d = dd.getDate()<10?"0"+dd.getDate():dd.getDate();//获取当前几号，不足10补0

@@ -81,7 +81,7 @@ var vm = new Vue({
 				title : '新增任务',
 				url : 'base/quartz/add.html?_' + $.now(),
 				width : '450px',
-				height : '380px',
+				height : '392px',
 				scroll : true,
 				yes : function(iframeId) {
 					top.frames[iframeId].vm.acceptClick();
@@ -95,7 +95,7 @@ var vm = new Vue({
 					title : '编辑任务',
 					url : 'base/quartz/edit.html?_' + $.now(),
 					width : '450px',
-					height : '380px',
+					height : '392px',
 					scroll : true,
 					success : function(iframeId) {
 						top.frames[iframeId].vm.job.jobId = ck[0].jobId;

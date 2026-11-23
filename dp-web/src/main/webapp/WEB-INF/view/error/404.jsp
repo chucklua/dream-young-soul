@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="utf-8"/>
-<title>400错误</title>
+<title>404错误</title>
 <style type="text/css">
 .middle-box {
 	max-width: 400px;
@@ -24,7 +24,7 @@
 </head>
 <body>
 	<div class="middle-box text-center">
-		<h1>400</h1>
+		<h1>404</h1>
 		<h3 class="font-bold">页面未找到！</h3>
 		<div class="error-desc">
 			抱歉，页面好像去火星了~

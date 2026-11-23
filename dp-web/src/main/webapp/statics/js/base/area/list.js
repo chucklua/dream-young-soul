@@ -130,7 +130,7 @@ var vm = new Vue({
 				title : '新增区域',
 				url : 'base/area/add.html?_' + $.now(),
 				width : '500px',
-				height : '445px',
+				height : '450px',
 				success : function(iframeId) {
 					top.frames[iframeId].vm.area.parentCode = vm.parentCode;
 					top.frames[iframeId].vm.area.parentName = vm.parentName;
@@ -147,7 +147,7 @@ var vm = new Vue({
 					title : '编辑区域',
 					url : 'base/area/edit.html?_' + $.now(),
 					width : '500px',
-					height : '445px',
+					height : '450px',
 					success : function(iframeId) {
 						top.frames[iframeId].vm.area.areaId = ck[0].areaId;
 						top.frames[iframeId].vm.setForm();
