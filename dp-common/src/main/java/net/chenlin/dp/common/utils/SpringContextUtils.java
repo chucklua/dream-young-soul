@@ -3,7 +3,6 @@ package net.chenlin.dp.common.utils;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.stereotype.Component;
 
 /**
  * Spring Context 工具类
@@ -13,7 +12,6 @@ import org.springframework.stereotype.Component;
  * @url www.chenlintech.com
  * @date 2017年8月20日 下午10:50:24
  */
-@Component
 public class SpringContextUtils implements ApplicationContextAware {
 	
 	public static ApplicationContext applicationContext; 
